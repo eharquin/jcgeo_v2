@@ -1,0 +1,72 @@
+\begin{frame}{Formal sum}
+    \large
+    \begin{center}
+        \renewcommand{\arraystretch}{2.0} % more vertical space between rows
+        \begin{tabular}{|c|c|}
+            \hline
+            \textbf{Linear Algebra} & \textbf{Geometric Algebra} \\ \hline
+            $\vec{\mathbf{u}} =
+                \begin{pmatrix}
+                    a \\
+                    b \\
+                    c \\
+                    \vdots
+                \end{pmatrix}
+                \textcolor{gray}{
+                    \begin{pmatrix}
+                        \textcolor{red}{e_x}   \\
+                        \textcolor{green}{e_y} \\
+                        \textcolor{blue}{e_z}  \\
+                        \vdots
+                    \end{pmatrix}
+                }$
+                                    &
+            $\vec{\mathbf{u}} = a\, \textcolor{red}{e_x} + b\, \textcolor{green}{e_y} + c\, \textcolor{blue}{e_z} + \cdots$
+            \\ \hline
+        \end{tabular}
+    \end{center}
+\end{frame}
+
+
+\input{products}
+
+
+\input{trivectors}
+
+
+
+\begin{frame}{$k$-vectors and subspaces}
+    \textbf{Set of vector spaces in 3D:}
+
+    \vspace{1em}
+
+    \[
+        \left\{
+        \underbrace{\mathbf{1}}_{\text{scalar}},\quad
+        \underbrace{
+            \textcolor{red}{\mathbf{e}_x},\
+            \textcolor{green}{\mathbf{e}_y},\
+            \textcolor{blue}{\mathbf{e}_z}
+        }_{\text{vector space}},\quad
+        \underbrace{
+            \textcolor{midredgreen}{\mathbf{e}_{xy}},\
+            \textcolor{midredblue}{\mathbf{e}_{zx}},\
+            \textcolor{midgreenblue}{\mathbf{e}_{yz}}
+        }_{\text{bivector space}},\quad
+        \underbrace{
+            \textcolor{mixAll}{\mathbf{e}_{xyz}}
+        }_{\text{trivector space}}
+        \right\}
+    \]
+
+    \vspace{1em}
+
+    \textbf{Pseudo-scalar: }
+    \(
+    \textcolor{mixAll}{\mathbf{I}} =
+    \textcolor{red}{\mathbf{e}_x} \wedge
+    \textcolor{green}{\mathbf{e}_y} \wedge
+    \textcolor{blue}{\mathbf{e}_z} =
+    \textcolor{mixAll}{\mathbf{e}_{xyz}}
+    \)
+\end{frame}

@@ -1,0 +1,507 @@
+% \begin{frame}[t]{Inner Product}
+
+%     \visible<1-7>
+%     {
+%         \begin{center}
+%             \Huge $\textcolor{u}{\vec{u}} \cdot \textcolor{v}{\vec{v}}$ \only<4-7>{$= \cos(\textcolor{gray}{\theta}) \|\textcolor{u}{\vec{u}}\| \|\textcolor{v}{\vec{v}}\|$}
+%         \end{center}
+%     }
+
+%     \begin{columns}[T]
+%         \column{0.5\textwidth}
+
+%         \visible<5->
+%         {
+%             \textbf{Properties:}
+%             \begin{itemize}
+%                 \item Commutativity
+%                 \item Distributivity
+%                 \item Linearity
+%             \end{itemize}
+%         }
+
+%         \vspace{2em}
+
+%         \visible<6-7>
+%         {
+%             \begin{alertblock}{Limitations}
+%                 Not enough information about the vectors
+%             \end{alertblock}
+%         }
+
+%         \column{0.5\textwidth}
+%         \begin{minipage}[c][0.6\textheight][c]{\linewidth} % [c] vertical alignment, [\textheight] height, [c] content alignment
+%             \centering
+%             \begin{tikzpicture}
+%                 \coordinate (O) at (0,0);
+
+%                 \def\xa{2.5}
+%                 \def\ya{2.5}
+%                 \coordinate (a) at (\xa,\ya);
+
+%                 \def\xb{4}
+%                 \def\yb{0}
+%                 \coordinate (b) at (\xb,\yb);
+
+%                 \visible<2-6>
+%                 {
+%                     \draw[ultra thick, u, ->, >=Triangle] (O) -- (a);
+%                     \draw[ultra thick, v, ->, >=Triangle] (O) -- (b);
+%                 }
+
+%                 \visible<3-6>
+%                 {
+%                     \draw[ultra thick, gray, dotted, overlay] (\xa,0) -- (\xa, \ya);
+%                 }
+
+%                 \visible<3>
+%                 {
+%                     \draw[decorate,gray, ultra thick,decoration={brace,amplitude=10pt,mirror}] (O) -- (\xa, 0) node[midway,below,yshift=-10pt] {Proj}; % Label for the magnitude
+%                 }
+
+%                 \visible<4-6>
+%                 {
+%                     \draw pic[
+%                             ultra thick,
+%                             gray,
+%                             draw=gray,
+%                             angle radius=1cm,
+%                             angle eccentricity=1.2,
+%                             "$\theta$"
+%                         ] {angle=b--O--a};
+
+%                     \draw[decorate,gray, ultra thick,decoration={brace,amplitude=10pt,mirror}] (O) -- (\xa, 0) node[midway,below,yshift=-10pt] {$\cos(\textcolor{gray}{\theta}) \|\textcolor{u}{\vec{u}}\| \|\textcolor{v}{\vec{v}}\|$}; % Label for the magnitude
+%                 }
+
+%                 \visible<7>
+%                 {
+%                     \def\xa{2.5}
+%                     \def\ya{-2.5}
+%                     \coordinate (a) at (\xa,\ya);
+
+%                     \def\xb{4}
+%                     \def\yb{0}
+%                     \coordinate (b) at (\xb,\yb);
+
+%                     \draw[ultra thick, u, ->, >=Triangle] (O) -- (a);
+%                     \draw[ultra thick, v, ->, >=Triangle] (O) -- (b);
+
+%                     \draw[ultra thick, gray, dotted, overlay] (\xa,0) -- (\xa, \ya);
+
+%                     \draw pic[
+%                             ultra thick,
+%                             gray,
+%                             draw=gray,
+%                             angle radius=1cm,
+%                             angle eccentricity=1.2,
+%                             "$\theta$"
+%                         ] {angle=a--O--b};
+
+%                     \draw[decorate,gray, ultra thick,decoration={brace,amplitude=10pt}] (O) -- (\xa, 0) node[midway,below,yshift=30pt] {$\cos(\textcolor{gray}{\theta}) \|\textcolor{u}{\vec{u}}\| \|\textcolor{v}{\vec{v}}\|$}; % Label for the magnitude
+%                 }
+%             \end{tikzpicture}
+%         \end{minipage}
+%     \end{columns}
+% \end{frame}
+
+
+% \begin{frame}[t]{(Not the) Cross Product}
+%     \begin{center}
+%         \Huge $\textcolor{u}{\vec{u}} \times \textcolor{v}{\vec{v}}$ \only<2>{$ = \|\textcolor{u}{\vec{u}}\| \|\textcolor{v}{\vec{v}}\| \sin(\textcolor{gray}{\theta}) \hat{n}$}
+%     \end{center}
+
+%     \vspace{3em}
+
+%     \begin{columns}[T]
+%         \column{0.5\textwidth}
+%         \visible<3>
+%         {
+%             \begin{alertblock}{Problem}
+%                 Only works in 3D \ldots
+%             \end{alertblock}
+%         }
+
+%     \end{columns}
+
+% \end{frame}
+
+% \begin{frame}[t]{New Operator}
+%     \centering
+%     \Huge
+%     An operator that
+%     \only<1>{\dots}
+%     \only<2>{\\\textbf{increases the dimension}?}
+
+%     \vspace{2em}
+
+%     \only<2>{
+%         \Large
+%         \begin{minipage}{0.8\textwidth}
+%             The \textbf{inner product} between two vectors gives a scalar: it \textbf{contracts} dimensions.\\[1em]
+%             But what if we want to \textbf{expand} dimensionality?\\[1em]
+%         \end{minipage}
+%     }
+% \end{frame}
+
+
+\begin{frame}[t]{Bivectors and Outer Product}
+
+    \begin{center}
+        \only<1-3>{\Huge $\textcolor{u}{\vec{u}} \wedge \textcolor{v}{\vec{v}}$ \only<3-4>{$=\textcolor{A}{\vec{A}}$}}
+        % \only<4-5>{\Huge $\textcolor{v}{\vec{v}} \wedge \textcolor{u}{\vec{u}}$ \only<5>{$=\textcolor{A}{-\vec{A}}$}}
+        \only<4>{\Huge $\textcolor{u}{\vec{u}} \wedge \textcolor{v}{\vec{v}}=-\textcolor{v}{\vec{v}} \wedge \textcolor{u}{\vec{u}}$}
+        \only<5>{\Huge $\textcolor{A}{\vec{A}}$}
+        \only<6-7>{\Huge $\|\textcolor{A}{\vec{A}}\|$ \only<7>{$=\sin(\textcolor{gray}{\theta}) \|\textcolor{u}{\vec{u}}\| \|\textcolor{v}{\vec{v}}\|$}}
+        \only<8>{\Huge $\|\textcolor{A}{\vec{A}}\| = 0$}
+    \end{center}
+
+    \begin{minipage}[c][0.6\textheight][c]{\linewidth}
+        \centering
+        \begin{tikzpicture}
+            \coordinate (O) at (0,0);
+
+            \def\xa{2.5}
+            \def\ya{2.5}
+            \coordinate (a) at (\xa,\ya);
+
+            \def\xb{4}
+            \def\yb{0}
+            \coordinate (b) at (\xb,\yb);
+
+            \visible<3>
+            {
+                \draw[ultra thick, A, ->, >=Triangle] ({\xa+\xb},{\ya}) -- (b);
+                \draw[ultra thick, A, ->, >=Triangle] (a) -- ({\xa+\xb},{\ya});
+                \draw[ultra thick, A, ->, >=Triangle] (b) -- (O);
+                \draw[ultra thick, A, ->, >=Triangle] (O) -- (a);
+
+                \draw[draw=none, fill=A, opacity=0.2] ({\xa+\xb},{\ya}) -- (b) -- (O) -- (a) -- cycle;
+                % \node[A] at (3,1.25) {$\vec{A}$};
+                \draw[A!60, thick,<-,>=Triangle] (3.75,1.25) arc[radius=0.5cm,start angle=0,delta angle=270];
+                % point on the center of the parallelogram
+            }
+
+            \visible<1-3>
+            {
+                \draw[ultra thick, u, ->, >=Triangle] (O) -- (a);
+            }
+
+            \visible<1>
+            {
+                \draw[ultra thick, v, ->, >=Triangle] (O) -- (b);
+            }
+
+            \visible<2-3>
+            {
+                \draw[ultra thick, v, ->, >=Triangle] (a) -- ({\xa+\xb},{\ya});
+            }
+
+
+            % \visible<5>
+            % {
+            %     \draw[ultra thick, A, <-, >=Triangle] ({\xa+\xb},{\ya}) -- (b);
+            %     \draw[ultra thick, A, <-, >=Triangle] (a) -- ({\xa+\xb},{\ya});
+            %     \draw[ultra thick, A, <-, >=Triangle] (b) -- (O);
+            %     \draw[ultra thick, A, <-, >=Triangle] (O) -- (a);
+
+            %     \draw[draw=none, fill=A, opacity=0.2] ({\xa+\xb},{\ya}) -- (b) -- (O) -- (a) -- cycle;
+            %     % \node[A] at (3,1.25) {$\vec{A}$};
+            %     \draw[A!60, thick,->,>=Triangle] (3.75,1.25) arc[radius=0.5cm,start angle=0,delta angle=270];
+            %     % point on the center of the parallelogram
+            % }
+
+            % \visible<4-5>
+            % {
+            %     \draw[ultra thick, v, ->, >=Triangle] (O) -- (b);
+            %     \draw[ultra thick, u, ->, >=Triangle] (b) -- ({\xa+\xb},{\ya});
+            % }
+
+            \only<4>
+            {
+                \begin{scope}[shift={(-3,0)}]
+                    \coordinate (O) at (0,0);
+
+                    \def\xa{2.5}
+                    \def\ya{2.5}
+                    \coordinate (a) at (\xa,\ya);
+
+                    \def\xb{4}
+                    \def\yb{0}
+                    \coordinate (b) at (\xb,\yb);
+
+                    \draw[ultra thick, A, ->, >=Triangle] ({\xa+\xb},{\ya}) -- (b);
+                    \draw[ultra thick, A, ->, >=Triangle] (a) -- ({\xa+\xb},{\ya});
+                    \draw[ultra thick, A, ->, >=Triangle] (b) -- (O);
+                    \draw[ultra thick, A, ->, >=Triangle] (O) -- (a);
+
+                    \draw[draw=none, fill=A, opacity=0.2] ({\xa+\xb},{\ya}) -- (b) -- (O) -- (a) -- cycle;
+                    % \node[A] at (3,1.25) {$\vec{A}$};
+                    \draw[A!60, thick,<-,>=Triangle] (3.75,1.25) arc[radius=0.5cm,start angle=0,delta angle=270];
+                    % point on the center of the parallelogram
+                    \draw[ultra thick, u, ->, >=Triangle] (O) -- (a);
+                    \draw[ultra thick, v, ->, >=Triangle] (a) -- ({\xa+\xb},{\ya});
+                \end{scope}
+
+                \begin{scope}[shift={(3,0)}]
+                    \coordinate (O) at (0,0);
+
+                    \def\xa{2.5}
+                    \def\ya{2.5}
+                    \coordinate (a) at (\xa,\ya);
+
+                    \def\xb{4}
+                    \def\yb{0}
+                    \coordinate (b) at (\xb,\yb);
+
+                    \draw[ultra thick, A, <-, >=Triangle] ({\xa+\xb},{\ya}) -- (b);
+                    \draw[ultra thick, A, <-, >=Triangle] (a) -- ({\xa+\xb},{\ya});
+                    \draw[ultra thick, A, <-, >=Triangle] (b) -- (O);
+                    \draw[ultra thick, A, <-, >=Triangle] (O) -- (a);
+
+                    \draw[draw=none, fill=A, opacity=0.2] ({\xa+\xb},{\ya}) -- (b) -- (O) -- (a) -- cycle;
+                    % \node[A] at (3,1.25) {$\vec{A}$};
+                    \draw[A!60, thick,->,>=Triangle] (3.75,1.25) arc[radius=0.5cm,start angle=0,delta angle=270];
+                    % point on the center of the parallelogram
+
+                    \draw[ultra thick, v, ->, >=Triangle] (O) -- (b);
+                    \draw[ultra thick, u, ->, >=Triangle] (b) -- ({\xa+\xb},{\ya});
+                \end{scope}
+
+            }
+
+            \visible<5>
+            {
+                \draw[ultra thick, A, ->, >=Triangle] ({\xa+\xb},{\ya}) -- (b);
+                \draw[ultra thick, A, ->, >=Triangle] (a) -- ({\xa+\xb},{\ya});
+                \draw[ultra thick, A, ->, >=Triangle] (b) -- (O);
+                \draw[ultra thick, A, ->, >=Triangle] (O) -- (a);
+
+                \draw[draw=none, fill=A, opacity=0.2] ({\xa+\xb},{\ya}) -- (b) -- (O) -- (a) -- cycle;
+                % \node[A] at (3,1.25) {$\vec{A}$};
+                \draw[A!60, thick,<-,>=Triangle] (3.75,1.25) arc[radius=0.5cm,start angle=0,delta angle=270];
+                % point on the center of the parallelogram
+            }
+
+            \visible<6-7>
+            {
+                \draw[draw=none, fill=A, opacity=0.2] ({\xa+\xb},{\ya}) -- (b) -- (O) -- (a) -- cycle;
+            }
+
+            \visible<7>
+            {
+                \draw[ultra thick, u, ->, >=Triangle] (O) -- (a);
+                \draw[ultra thick, v, ->, >=Triangle] (O) -- (b);
+
+                \draw pic[
+                        ultra thick,
+                        gray,
+                        draw=gray,
+                        angle radius=1cm,
+                        angle eccentricity=1.2,
+                        "$\theta$"
+                    ] {angle=b--O--a};
+            }
+
+            \visible<8>
+            {
+                \draw[ultra thick, v, ->, >=Triangle] (O) -- (b);
+                \draw[ultra thick, u, ->, >=Triangle] (O) -- ({3.54},{0});
+            }
+
+            \draw[red] (current bounding box.south west) rectangle (current bounding box.north east);
+
+        \end{tikzpicture}
+
+    \end{minipage}
+
+    \centering
+    \huge
+    \only<4>{Anti-Commutativity!}
+    \only<8>{Contract parallel dimensions!}
+
+
+\end{frame}
+
+
+
+\begin{frame}[t]{Bivectors and Outer Product}
+
+    \begin{center}
+        \only<1-2>{\Huge $\textcolor{u}{\vec{u}} \wedge \textcolor{v}{\vec{v}} =\textcolor{A}{\vec{A}}$}
+    \end{center}
+
+    \begin{columns}
+
+        \column{0.5\textwidth}
+        \only<1-2>
+        {
+            \begin{tabular}{rcl}
+                $\lambda \wedge \textcolor{u}{\vec{u}}$                                                & $=$ & $\lambda\,\textcolor{u}{\vec{u}}$                                                                                 \\
+                $(\textcolor{u}{\vec{u}} \wedge \textcolor{v}{\vec{v}}) \wedge \textcolor{w}{\vec{w}}$ & $=$ & $\textcolor{u}{\vec{u}} \wedge (\textcolor{v}{\vec{v}} \wedge \textcolor{w}{\vec{w}})$                            \\
+                $\textcolor{u}{\vec{u}} \wedge (\textcolor{v}{\vec{v}} + \textcolor{w}{\vec{w}})$      & $=$ & $(\textcolor{u}{\vec{u}} \wedge \textcolor{v}{\vec{v}}) + (\textcolor{u}{\vec{u}} \wedge \textcolor{w}{\vec{w}})$ \\
+                $\textcolor{u}{\vec{u}} \wedge (\lambda \textcolor{v}{\vec{v}})$                       & $=$ & $\lambda\,(\textcolor{u}{\vec{u}} \wedge \textcolor{v}{\vec{v}})$                                                 \\
+                \\
+                $\textcolor{u}{\vec{u}} \wedge \textcolor{v}{\vec{v}}$                                 & $=$ & $-\textcolor{v}{\vec{v}} \wedge \textcolor{u}{\vec{u}}$                                                           \\
+                $\textcolor{u}{\vec{u}} \wedge \lambda \textcolor{u}{\vec{u}}$                         & $=$ & $0$                                                                                                               \\
+            \end{tabular}
+        }
+
+        \vspace{2em}
+
+        \only<2>
+        {
+            \begin{alertblock}{Limitations (again)}
+                Not enough information about the vectors
+            \end{alertblock}
+        }
+
+
+        \column{0.5\textwidth}
+        \begin{minipage}[c][0.6\textheight][c]{\linewidth} % [c] vertical alignment, [\textheight] height, [c] content alignment
+            \centering
+            \begin{tikzpicture}
+
+                \visible<1>
+                {
+                    \begin{scope}[shift={(0,-2)}]
+                        \coordinate (O) at (0,0);
+
+                        \def\xa{2.5}
+                        \def\ya{2.5}
+                        \coordinate (a) at (\xa,\ya);
+
+                        \def\xb{4}
+                        \def\yb{0}
+                        \coordinate (b) at (\xb,\yb);
+
+                        \draw[ultra thick, A, ->, >=Triangle] ({\xa+\xb},{\ya}) -- (b);
+                        \draw[ultra thick, A, ->, >=Triangle] (a) -- ({\xa+\xb},{\ya});
+                        \draw[ultra thick, A, ->, >=Triangle] (b) -- (O);
+                        \draw[ultra thick, A, ->, >=Triangle] (O) -- (a);
+
+                        \draw[draw=none, fill=A, opacity=0.2] ({\xa+\xb},{\ya}) -- (b) -- (O) -- (a) -- cycle;
+                        % \node[A] at (3,1.25) {$\vec{A}$};
+                        \draw[A!60, thick,<-,>=Triangle] (3.75,1.25) arc[radius=0.5cm,start angle=0,delta angle=270];
+                        % point on the center of the parallelogram
+
+                        \draw[ultra thick, u, ->, >=Triangle] (O) -- (a);
+                        \draw[ultra thick, v, ->, >=Triangle] (O) -- (b);
+                    \end{scope}
+                }
+
+
+                \visible<2>
+                {
+                    \begin{scope}[scale=0.6, shift={(3,0)}]
+                        \coordinate (O) at (0,0);
+
+                        \def\xa{2.5}
+                        \def\ya{2.5}
+                        \coordinate (a) at (\xa,\ya);
+
+                        \def\xb{4}
+                        \def\yb{0}
+                        \coordinate (b) at (\xb,\yb);
+
+                        \draw[ultra thick, A, ->, >=Triangle] ({\xa+\xb},{\ya}) -- (b);
+                        \draw[ultra thick, A, ->, >=Triangle] (a) -- ({\xa+\xb},{\ya});
+                        \draw[ultra thick, A, ->, >=Triangle] (b) -- (O);
+                        \draw[ultra thick, A, ->, >=Triangle] (O) -- (a);
+
+                        \draw[draw=none, fill=A, opacity=0.2] ({\xa+\xb},{\ya}) -- (b) -- (O) -- (a) -- cycle;
+                        % \node[A] at (3,1.25) {$\vec{A}$};
+                        \draw[A!60, thick,<-,>=Triangle] (3.75,1.25) arc[radius=0.5cm,start angle=0,delta angle=270];
+                        % point on the center of the parallelogram
+
+                        \draw[ultra thick, u, ->, >=Triangle] (O) -- (a);
+                        \draw[ultra thick, v, ->, >=Triangle] (O) -- (b);
+
+                        \node at (3.25,-1.4) {\huge$=$};
+
+                        \begin{scope}[shift={(1.25,-5)}]
+                            \coordinate (O) at (0,0);
+
+                            \def\xa{0}
+                            \def\ya{2.5}
+                            \coordinate (a) at (\xa,\ya);
+
+                            \def\xb{4}
+                            \def\yb{0}
+                            \coordinate (b) at (\xb,\yb);
+
+                            \draw[ultra thick, A, ->, >=Triangle] ({\xa+\xb},{\ya}) -- (b);
+                            \draw[ultra thick, A, ->, >=Triangle] (a) -- ({\xa+\xb},{\ya});
+                            \draw[ultra thick, A, ->, >=Triangle] (b) -- (O);
+                            \draw[ultra thick, A, ->, >=Triangle] (O) -- (a);
+
+                            \draw[draw=none, fill=A, opacity=0.2] ({\xa+\xb},{\ya}) -- (b) -- (O) -- (a) -- cycle;
+                            % \node[A] at (3,1.25) {$\vec{A}$};
+                            \draw[A!60, thick,<-,>=Triangle] (2.5,1.25) arc[radius=0.5cm,start angle=0,delta angle=270];
+                            % point on the center of the parallelogram
+
+                            \draw[ultra thick, u, ->, >=Triangle] (O) -- (a);
+                            \draw[ultra thick, v, ->, >=Triangle] (O) -- (b);
+
+                        \end{scope}
+                    \end{scope}
+                }
+            \end{tikzpicture}
+        \end{minipage}
+
+    \end{columns}
+
+\end{frame}
+
+
+\begin{frame}{Bivector in 2D}
+    \Large
+    \[
+        \textcolor{u}{\vec{u}} = a_1 \textcolor{red}{\mathbf{e}_x} + b_1 \textcolor{green}{\mathbf{e}_y}
+        \qquad
+        \textcolor{v}{\vec{v}} = a_2 \textcolor{red}{\mathbf{e}_x} + b_2 \textcolor{green}{\mathbf{e}_y}
+    \]
+
+    \begin{align*}
+        \textcolor{u}{\vec{u}} \wedge \textcolor{v}{\vec{v}}
+         & = (a_1 \textcolor{red}{\mathbf{e}_x} + b_1 \textcolor{green}{\mathbf{e}_y}) \wedge (a_2 \textcolor{red}{\mathbf{e}_x} + b_2 \textcolor{green}{\mathbf{e}_y}) \\
+         & = a_1 a_2 (\textcolor{red}{\mathbf{e}_x} \wedge \textcolor{red}{\mathbf{e}_x})
+        + a_1 b_2 (\textcolor{red}{\mathbf{e}_x} \wedge \textcolor{green}{\mathbf{e}_y})                                                                                \\
+         & \quad + b_1 a_2 (\textcolor{green}{\mathbf{e}_y} \wedge \textcolor{red}{\mathbf{e}_x})
+        + b_1 b_2 (\textcolor{green}{\mathbf{e}_y} \wedge \textcolor{green}{\mathbf{e}_y})                                                                              \\
+         & = (a_1 b_2 - b_1 a_2)(\textcolor{red}{\mathbf{e}_x} \wedge \textcolor{green}{\mathbf{e}_y})                                                                  \\
+         & = (a_1 b_2 - b_1 a_2) \textcolor{midredgreen}{\mathbf{e}_{xy}}
+    \end{align*}
+\end{frame}
+
+
+\begin{frame}{Bivector in 3D}
+    \Large
+    \[
+        \textcolor{u}{\vec{u}} = a_1 \textcolor{red}{\mathbf{e}_x} + b_1 \textcolor{green}{\mathbf{e}_y} + c_1 \textcolor{blue}{\mathbf{e}_z}
+        \quad\quad
+        \textcolor{v}{\vec{v}} = a_2 \textcolor{red}{\mathbf{e}_x} + b_2 \textcolor{green}{\mathbf{e}_y} + c_2 \textcolor{blue}{\mathbf{e}_z}
+    \]
+
+    \vspace{0.5em}
+
+    \begin{align*}
+        \textcolor{u}{\vec{u}} \wedge \textcolor{v}{\vec{v}} & =
+        (a_1 b_2 - b_1 a_2)\, \textcolor{midredgreen}{\mathbf{e}_{xy}}
+        + (c_1 a_2 - a_1 c_2)\, \textcolor{midredblue}{\mathbf{e}_{zx}}
+        + (b_1 c_2 - c_1 b_2)\, \textcolor{midgreenblue}{\mathbf{e}_{yz}}
+        \\
+        \textcolor{u}{\vec{u}} \times \textcolor{v}{\vec{v}} & =
+        (a_1 b_2 - b_1 a_2)\, \textcolor{blue}{\mathbf{e}_z}
+        + (c_1 a_2 - a_1 c_2)\, \textcolor{green}{\mathbf{e}_y}
+        + (b_1 c_2 - c_1 b_2)\, \textcolor{red}{\mathbf{e}_x}
+    \end{align*}
+
+    \vspace{0.5em}
+
+    \textbf{Note}: looks like the cross product of \(\mathbb{R}^3\) but:
+    \begin{itemize}
+        \item is actually defined in any dimension
+        \item is associative: \((\textcolor{u}{\vec{u}} \wedge \textcolor{v}{\vec{v}}) \wedge \textcolor{w}{\vec{w}} = \textcolor{u}{\vec{u}} \wedge (\textcolor{v}{\vec{v}} \wedge \textcolor{w}{\vec{w}})\)
+    \end{itemize}
+\end{frame}
+

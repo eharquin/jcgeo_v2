@@ -1,0 +1,96 @@
+\makeatletter
+
+% Initialize H matrix for perspective view
+\pgfmathsetmacro\H@tpp@aa{1}\pgfmathsetmacro\H@tpp@ab{0}\pgfmathsetmacro\H@tpp@ac{0}%\pgfmathsetmacro\H@tpp@ad{0}
+\pgfmathsetmacro\H@tpp@ba{0}\pgfmathsetmacro\H@tpp@bb{1}\pgfmathsetmacro\H@tpp@bc{0}%\pgfmathsetmacro\H@tpp@bd{0}
+\pgfmathsetmacro\H@tpp@ca{0}\pgfmathsetmacro\H@tpp@cb{0}\pgfmathsetmacro\H@tpp@cc{1}%\pgfmathsetmacro\H@tpp@cd{0}
+\pgfmathsetmacro\H@tpp@da{0}\pgfmathsetmacro\H@tpp@db{0}\pgfmathsetmacro\H@tpp@dc{0}%\pgfmathsetmacro\H@tpp@dd{1}
+
+%Initialize H matrix for main rotation
+\pgfmathsetmacro\H@rot@aa{1}\pgfmathsetmacro\H@rot@ab{0}\pgfmathsetmacro\H@rot@ac{0}%\pgfmathsetmacro\H@rot@ad{0}
+\pgfmathsetmacro\H@rot@ba{0}\pgfmathsetmacro\H@rot@bb{1}\pgfmathsetmacro\H@rot@bc{0}%\pgfmathsetmacro\H@rot@bd{0}
+\pgfmathsetmacro\H@rot@ca{0}\pgfmathsetmacro\H@rot@cb{0}\pgfmathsetmacro\H@rot@cc{1}%\pgfmathsetmacro\H@rot@cd{0}
+%\pgfmathsetmacro\H@rot@da{0}\pgfmathsetmacro\H@rot@db{0}\pgfmathsetmacro\H@rot@dc{0}\pgfmathsetmacro\H@rot@dd{1}
+
+\pgfkeys{
+    /three point perspective/.cd,
+    p/.code args={(#1,#2,#3)}{
+            \pgfmathparse{int(round(#1))}
+            \ifnum\pgfmathresult=0\else
+                \pgfmathsetmacro\H@tpp@ba{#2/#1}
+                \pgfmathsetmacro\H@tpp@ca{#3/#1}
+                \pgfmathsetmacro\H@tpp@da{ 1/#1}
+                \coordinate (vp-p) at (#1,#2,#3);
+            \fi
+        },
+    q/.code args={(#1,#2,#3)}{
+            \pgfmathparse{int(round(#2))}
+            \ifnum\pgfmathresult=0\else
+                \pgfmathsetmacro\H@tpp@ab{#1/#2}
+                \pgfmathsetmacro\H@tpp@cb{#3/#2}
+                \pgfmathsetmacro\H@tpp@db{ 1/#2}
+                \coordinate (vp-q) at (#1,#2,#3);
+            \fi
+        },
+    r/.code args={(#1,#2,#3)}{
+            \pgfmathparse{int(round(#3))}
+            \ifnum\pgfmathresult=0\else
+                \pgfmathsetmacro\H@tpp@ac{#1/#3}
+                \pgfmathsetmacro\H@tpp@bc{#2/#3}
+                \pgfmathsetmacro\H@tpp@dc{ 1/#3}
+                \coordinate (vp-r) at (#1,#2,#3);
+            \fi
+        },
+    coordinate/.code args={#1,#2,#3}{
+            \def\tpp@x{#1}
+            \def\tpp@y{#2}
+            \def\tpp@z{#3}
+        },
+}
+
+\tikzset{
+    view/.code 2 args={
+            \pgfmathsetmacro\rot@main@theta{#1}
+            \pgfmathsetmacro\rot@main@phi{#2}
+            % Row 1
+            \pgfmathsetmacro\H@rot@aa{cos(\rot@main@phi)}
+            \pgfmathsetmacro\H@rot@ab{sin(\rot@main@phi)}
+            \pgfmathsetmacro\H@rot@ac{0}
+            % Row 2
+            \pgfmathsetmacro\H@rot@ba{-cos(\rot@main@theta)*sin(\rot@main@phi)}
+            \pgfmathsetmacro\H@rot@bb{cos(\rot@main@phi)*cos(\rot@main@theta)}
+            \pgfmathsetmacro\H@rot@bc{sin(\rot@main@theta)}
+            % Row 3
+            \pgfmathsetmacro\H@m@ca{sin(\rot@main@phi)*sin(\rot@main@theta)}
+            \pgfmathsetmacro\H@m@cb{-cos(\rot@main@phi)*sin(\rot@main@theta)}
+            \pgfmathsetmacro\H@m@cc{cos(\rot@main@theta)}
+            % Set vector values
+            \pgfmathsetmacro\vec@x@x{\H@rot@aa}
+            \pgfmathsetmacro\vec@y@x{\H@rot@ab}
+            \pgfmathsetmacro\vec@z@x{\H@rot@ac}
+            \pgfmathsetmacro\vec@x@y{\H@rot@ba}
+            \pgfmathsetmacro\vec@y@y{\H@rot@bb}
+            \pgfmathsetmacro\vec@z@y{\H@rot@bc}
+            % Set pgf vectors
+            \pgfsetxvec{\pgfpoint{\vec@x@x cm}{\vec@x@y cm}}
+            \pgfsetyvec{\pgfpoint{\vec@y@x cm}{\vec@y@y cm}}
+            \pgfsetzvec{\pgfpoint{\vec@z@x cm}{\vec@z@y cm}}
+        },
+}
+
+\tikzset{
+    perspective/.code={\pgfkeys{/three point perspective/.cd,#1}},
+    perspective/.default={p={(15,0,0)},q={(0,15,0)},r={(0,0,50)}},
+}
+
+\tikzdeclarecoordinatesystem{three point perspective}{
+    \pgfkeys{/three point perspective/.cd,coordinate={#1}}
+    \pgfmathsetmacro\temp@p@w{\H@tpp@da*\tpp@x + \H@tpp@db*\tpp@y + \H@tpp@dc*\tpp@z + 1}
+    \pgfmathsetmacro\temp@p@x{(\H@tpp@aa*\tpp@x + \H@tpp@ab*\tpp@y + \H@tpp@ac*\tpp@z)/\temp@p@w}
+    \pgfmathsetmacro\temp@p@y{(\H@tpp@ba*\tpp@x + \H@tpp@bb*\tpp@y + \H@tpp@bc*\tpp@z)/\temp@p@w}
+    \pgfmathsetmacro\temp@p@z{(\H@tpp@ca*\tpp@x + \H@tpp@cb*\tpp@y + \H@tpp@cc*\tpp@z)/\temp@p@w}
+    \pgfpointxyz{\temp@p@x}{\temp@p@y}{\temp@p@z}
+}
+\tikzaliascoordinatesystem{tpp}{three point perspective}
+
+\makeatother

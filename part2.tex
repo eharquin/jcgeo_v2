@@ -1,0 +1,247 @@
+\begin{frame}{Metric $\mathbb{R}_{3,0,1}$}
+    \textbf{3D Projective geometric algebra:} \quad $\mathbb{R}_{3,0,1}$
+
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{center}
+            \begin{tabular}{c|cccc}
+                                                  & $\textcolor{red}{\mathbf{e}_x}$ & $\textcolor{green}{\mathbf{e}_y}$ & $\textcolor{blue}{\mathbf{e}_z}$ & $\textcolor{gray}{\mathbf{e}_0}$ \\ \hline
+                $\textcolor{red}{\mathbf{e}_x}$   & 1                               & \textcolor{gray}{0}               & \textcolor{gray}{0}              & \textcolor{gray}{0}              \\
+                $\textcolor{green}{\mathbf{e}_y}$ & \textcolor{gray}{0}             & 1                                 & \textcolor{gray}{0}              & \textcolor{gray}{0}              \\
+                $\textcolor{blue}{\mathbf{e}_z}$  & \textcolor{gray}{0}             & \textcolor{gray}{0}               & 1                                & \textcolor{gray}{0}              \\
+                $\textcolor{gray}{\mathbf{e}_0}$  & \textcolor{gray}{0}             & \textcolor{gray}{0}               & \textcolor{gray}{0}              & 0                                \\
+            \end{tabular}
+        \end{center}
+        \column{0.5\textwidth}
+
+        \begin{align*}
+            \mathbf{p}       & = x\,\textcolor{red}{\mathbf{e}_x} + y\,\textcolor{green}{\mathbf{e}_y} + z\,\textcolor{blue}{\mathbf{e}_z} + w\,\textcolor{gray}{\mathbf{e}_0} \\
+            \vec{\mathbf{u}} & = a\,\textcolor{red}{\mathbf{e}_x} + b\,\textcolor{green}{\mathbf{e}_y} + c\,\textcolor{blue}{\mathbf{e}_z}
+        \end{align*}
+
+    \end{columns}
+
+\end{frame}
+
+
+
+
+\begin{frame}[t]{Line from points and vectors}
+
+    $$
+        \mathbf{p} =
+        x\textcolor{red}{\mathbf{e}_x} +
+        y\textcolor{green}{\mathbf{e}_y} +
+        z\textcolor{blue}{\mathbf{e}_z} +
+        w\textcolor{gray}{\mathbf{e}_0}
+        \qquad
+        \vec{\mathbf{u}} =
+        a\textcolor{red}{\mathbf{e}_x} +
+        b\textcolor{green}{\mathbf{e}_y} +
+        c\textcolor{blue}{\mathbf{e}_z}
+    $$
+
+
+    \vspace{0.5em}
+
+    % Two-column layout
+    \begin{columns}
+        \column{0.5\textwidth}
+        \centering
+        \visible<2->{$\mathbf{L} = $} $\mathbf{p}_1 \wedge \only<1-2>{\mathbf{p}_2} \only<3->{\textcolor{u}{\vec{\mathbf{u}}}}$
+
+
+        \column{0.5\textwidth}
+        \begin{center}
+            \begin{tikzpicture}
+                \useasboundingbox (-2,-1) rectangle (2,1);
+
+                \filldraw (-1.5, -0.643) circle (2pt) node[above left, scale=0.8] {$\mathbf{p}_1$};
+
+                \visible<1-2>{\filldraw (1.5, 0.643) circle (2pt) node[above left, scale=0.8] {$\mathbf{p}_2$};}
+                \visible<3-4>{\draw[u,>=Triangle,->, ultra thick] (-1.5, -0.643) -- (1.5, 0.643) node[midway, below] {$\vec{\mathbf{u}}$};}
+                \only<2-4>{
+                    \begin{scope}[on background layer]
+                        \def\xa{3.5}
+                        \def\ya{1.5}
+                        \def\scaleFactor{5}
+                        \draw[ultra thick, gray, overlay] ({-\scaleFactor*\xa}, {- \scaleFactor*\ya}) -- ({\scaleFactor*\xa}, {\scaleFactor*\ya});
+                    \end{scope}
+                }
+
+
+                %\draw[red] (current bounding box.south west) rectangle (current bounding box.north east);
+            \end{tikzpicture}
+        \end{center}
+    \end{columns}
+
+    \visible<4>
+    {
+        \vspace{3em}
+
+        \begin{center}
+            $$
+                \mathbf{p} \in \mathbf{L}
+                \qquad \Leftrightarrow \qquad
+                \mathbf{L} \wedge \mathbf{p} = 0
+            $$
+        \end{center}
+    }
+\end{frame}
+
+
+
+\begin{frame}[t]{Plane from points and vectors}
+
+    $$
+        \mathbf{p} =
+        x\textcolor{red}{\mathbf{e}_x} +
+        y\textcolor{green}{\mathbf{e}_y} +
+        z\textcolor{blue}{\mathbf{e}_z} +
+        w\textcolor{gray}{\mathbf{e}_0}
+        \qquad
+        \vec{\mathbf{u}} =
+        a\textcolor{red}{\mathbf{e}_x} +
+        b\textcolor{green}{\mathbf{e}_y} +
+        c\textcolor{blue}{\mathbf{e}_z}
+    $$
+
+
+    \vspace{0.5em}
+
+    % Two-column layout
+    \begin{columns}[T]
+        \column{0.5\textwidth}
+
+        \begin{align*}
+            \mathbf{P} & = \mathbf{p}_1 \wedge \mathbf{p}_2 \wedge \mathbf{p}_3                                       \\
+            \mathbf{P} & = \mathbf{p}_1 \wedge \mathbf{p}_2 \wedge \textcolor{u}{\vec{\mathbf{u}}}                    \\
+            \mathbf{P} & = \mathbf{p}_1 \wedge \textcolor{u}{\vec{\mathbf{u}}} \wedge \textcolor{v}{\vec{\mathbf{v}}}
+        \end{align*}
+
+        \visible<5->{
+            \centering{\textcolor{gray}{\rule{\linewidth}{0.3pt}}}
+            $$\mathbf{p}\in \mathbf{P} ~~~\Leftrightarrow~~~ \mathbf{P} \wedge \mathbf{p} = 0 $$
+        }%
+
+        \column{0.5\textwidth}
+        \begin{center}
+            \begin{tikzpicture}
+                \useasboundingbox (-3,-3) rectangle (3,2);
+
+                \begin{scope}[
+                        scale=1.5,
+                        view={55}{135},
+                        perspective={
+                                p={(-7,0,0)},
+                                q={(0,-7,0)},
+                                r={(0,0,60)}
+                            },
+                        bullet/.style={circle,fill,inner sep=1pt},font=\sffamily,
+                        cube/.style={very thick,black},
+                        grid/.style={opacity=0.1, very thin,gray},
+                        vec/.style={->, >=triangle 45, ultra thick, yellow},
+                        axis/.style={dotted, thick},
+                        bivector/.style={draw=none,fill=yellow, opacity=0.2}]
+
+                    % Draw a grid in the x-y plane
+                    \foreach \x in {-0.5,0,...,1.5}
+                    \foreach \y in {-0.5,0,...,1.5}
+                        {
+                            \draw[opacity=0.1, very thin,gray] (tpp cs:\x,-0.5,0) -- (tpp cs:\x,1.5,0);
+                            \draw[opacity=0.1, very thin,gray] (tpp cs:-0.5,\y,0) -- (tpp cs:1.5,\y,0);
+                        }
+
+                    % Draw the axes
+                    \draw[axis] (tpp cs:-0.5,0,0) -- (tpp cs:1.5,0,0);
+                    \draw[axis] (tpp cs:0,-0.5,0) -- (tpp cs:0,1.5,0);
+                    \draw[axis] (tpp cs:0,0,0) -- (tpp cs:0,0,1.5);
+
+                    \begin{scope}[scale=1.5]
+                        \coordinate (E) at (tpp cs:1,0,0.5);
+                        \coordinate (F) at (tpp cs:0,0,0.8);
+                        \coordinate (G) at (tpp cs:0,1,0.5);
+                        \coordinate (H) at (tpp cs:1,1,0.2);
+                        \visible<2->{\draw[top color=white, opacity=0.5, bottom color=gray!50] (E) -- (F) -- (G) -- (H)-- cycle;}
+                    \end{scope}
+
+                    \filldraw (tpp cs:0.7,0.8,0) circle (1pt) node[below right] {$\mathbf{p}_1$};
+                    \visible<1-3>{\filldraw (tpp cs:0.1,0.4,0) circle (1pt) node[above right] {$\mathbf{p}_2$};}
+                    \visible<1-2>{\filldraw (tpp cs:0.7,0.3,0.5) circle (1pt) node[above right] {$\mathbf{p}_3$};}
+                    \visible<3->{\draw[->, >=Triangle, ultra thick, u] (tpp cs:0.7,0.8,0) -- (tpp cs:0.9,0.3,0.4);}
+                    \visible<4->{\draw[->, >=Triangle, ultra thick, v] (tpp cs:0.7,0.8,0) -- (tpp cs:0.1,0.9,0.4);}
+                \end{scope}
+
+                \draw[red] (current bounding box.south west) rectangle (current bounding box.north east);
+            \end{tikzpicture}
+        \end{center}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}{Plane line intersection}
+
+    \begin{columns}
+
+        \column{0.5\textwidth}
+
+        \column{0.5\textwidth}
+        \begin{tikzpicture}[line join=round]
+            \useasboundingbox (-3,-3) rectangle (3,2);
+
+            \begin{scope}[
+                    scale=1.5,
+                    view={55}{135},
+                    perspective={
+                            p={(-7,0,0)},
+                            q={(0,-7,0)},
+                            r={(0,0,60)}
+                        },
+                    bullet/.style={circle,fill,inner sep=1pt},font=\sffamily,
+                    cube/.style={very thick,black},
+                    grid/.style={opacity=0.1, very thin,gray},
+                    vec/.style={->, >=triangle 45, ultra thick, yellow},
+                    axis/.style={dotted, thick},
+                    bivector/.style={draw=none,fill=yellow, opacity=0.2}]
+
+                % Draw a grid in the x-y plane
+                \foreach \x in {-0.5,0,...,1.5}
+                \foreach \y in {-0.5,0,...,1.5}
+                    {
+                        \draw[opacity=0.1, very thin,gray] (tpp cs:\x,-0.5,0) -- (tpp cs:\x,1.5,0);
+                        \draw[opacity=0.1, very thin,gray] (tpp cs:-0.5,\y,0) -- (tpp cs:1.5,\y,0);
+                    }
+
+                % Draw the axes
+                \draw[axis] (tpp cs:-0.5,0,0) -- (tpp cs:1.5,0,0);
+                \draw[axis] (tpp cs:0,-0.5,0) -- (tpp cs:0,1.5,0);
+                \draw[axis] (tpp cs:0,0,0) -- (tpp cs:0,0,1.5);
+
+
+                \coordinate (A2) at (tpp cs:2.0,-0.6,-0.5);   % farther behind
+                \coordinate (B2) at (tpp cs:-0.6,2.0,1.5);    % farther in front
+                \coordinate (I2) at (tpp cs:0.7,0.7,0.5);
+                \draw[ultra thick, gray, dotted] (A2) -- (I2);
+
+                \begin{scope}[scale=1.5]
+                    \coordinate (E) at (tpp cs:1,0,0.5);
+                    \coordinate (F) at (tpp cs:0,0,0.8);
+                    \coordinate (G) at (tpp cs:0,1,0.5);
+                    \coordinate (H) at (tpp cs:1,1,0.2);
+
+                    % draw line 
+                    \draw[top color=white!0, opacity=0.5, bottom color=gray!50] (E) -- (F) -- (G) -- (H)-- cycle;
+
+                \end{scope}
+
+                \draw[ultra thick, gray] (I2) -- (B2);
+
+                \fill (I2) circle (1pt);
+
+            \end{scope}
+            \draw[red] (current bounding box.south west) rectangle (current bounding box.north east);
+
+        \end{tikzpicture}
+    \end{columns}
+
+\end{frame}
