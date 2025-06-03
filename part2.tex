@@ -59,8 +59,8 @@
                 \filldraw (-1.5, -0.643) circle (2pt) node[above left, scale=0.8] {$\mathbf{p}_1$};
 
                 \visible<1-2>{\filldraw (1.5, 0.643) circle (2pt) node[above left, scale=0.8] {$\mathbf{p}_2$};}
-                \visible<3-4>{\draw[u,>=Triangle,->, ultra thick] (-1.5, -0.643) -- (1.5, 0.643) node[midway, below] {$\vec{\mathbf{u}}$};}
-                \only<2-4>{
+                \visible<3->{\draw[u,>=Triangle,->, ultra thick] (-1.5, -0.643) -- (1.5, 0.643) node[midway, below] {$\vec{\mathbf{u}}$};}
+                \only<2->{
                     \begin{scope}[on background layer]
                         \def\xa{3.5}
                         \def\ya{1.5}
@@ -75,18 +75,21 @@
         \end{center}
     \end{columns}
 
-    \visible<4>
-    {
-        \vspace{3em}
+    \vspace{3em}
 
-        \begin{center}
+    \begin{center}
+        \visible<4->
+        {
             $$
                 \mathbf{p} \in \mathbf{L}
                 \qquad \Leftrightarrow \qquad
                 \mathbf{L} \wedge \mathbf{p} = 0
             $$
-        \end{center}
-    }
+        }
+        \visible<5->{
+            \ldots corresponds to Plücker lines!
+        }
+    \end{center}
 \end{frame}
 
 
@@ -123,6 +126,8 @@
             \centering{\textcolor{gray}{\rule{\linewidth}{0.3pt}}}
             $$\mathbf{p}\in \mathbf{P} ~~~\Leftrightarrow~~~ \mathbf{P} \wedge \mathbf{p} = 0 $$
         }%
+
+
 
         \column{0.5\textwidth}
         \begin{center}
@@ -184,6 +189,15 @@
     \begin{columns}
 
         \column{0.5\textwidth}
+        \centering
+
+        \begin{align*}
+            \mathbf{p} & = \textcolor{gray!50}{\mathbf{P}} \vee \textcolor{gray}{\mathbf{L}}                \\
+                       & = (\textcolor{gray!50}{\mathbf{p}_1 \wedge \mathbf{p}_2 \wedge \mathbf{p}_3}) \vee
+            (\textcolor{gray}{\mathbf{p}_4 \wedge \mathbf{p}_5})                                            \\
+        \end{align*}
+
+
 
         \column{0.5\textwidth}
         \begin{tikzpicture}[line join=round]

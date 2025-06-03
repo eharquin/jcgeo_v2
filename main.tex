@@ -25,4 +25,204 @@
 \input{part2}
 
 
+\section{Geometric Product}
+\input{geometricProduct}
+
+\section{Transformations}
+
+\begin{frame}{Reflection}
+\end{frame}
+
+
+\begin{frame}{What about 2 reflexions?}
+    \hfill\href{https://enkimute.github.io/ganja.js/examples/coffeeshop.html\#yYimFv544&fullscreen}{\beamergotobutton{2D rotation}}
+\end{frame}
+
+
+\begin{frame}{Rotation}
+    ... and what if reflecting lines are parallel? \\
+    \hfill\href{https://enkimute.github.io/ganja.js/examples/coffeeshop.html\#yYimFv544&fullscreen}{\beamergotobutton{2D rotation}}
+\end{frame}
+
+
+\begin{frame}{Translation}
+    \begin{center}
+        \only<1>{%
+            \begin{tikzpicture}
+                % planes
+                \draw (0,-1) node[below]{$\mathbf{b}$} -- (0,1) ;
+                \draw (2,-1) node[below]{$\mathbf{a}$} -- (2,1) ;
+                % intial points
+                \draw[blue,fill=blue] (-0.5,0.5) circle (0.05);
+                \draw[red,fill=red]  (-3,-0.5) circle (0.05);
+                % clip
+                \clip (-4,1) rectangle (4,1);
+            \end{tikzpicture}
+        }%
+        \only<2>{%
+            \begin{tikzpicture}
+                % planes
+                \draw (0,-1) node[below]{$\mathbf{b}$} -- (0,1) ;
+                \draw (2,-1) node[below]{$\mathbf{a}$} -- (2,1) ;
+                % intial points
+                \draw[blue,fill=blue] (-0.5,0.5) circle (0.05);
+                \draw[red,fill=red]  (-3,-0.5) circle (0.05);
+                % first reflexion
+                \draw[blue,fill=blue] (0.5,0.5) circle (0.05);
+                \draw[red,fill=red]  (3,-0.5) circle (0.05);
+                % line
+                \path[gray,->,>=latex] (-0.5,0.5) edge[out=20,in=160] (0.5,0.5);
+                \path[gray,->,>=latex] (-3,-0.5)  edge[out=10,in=170] (3,-0.5);
+                % clip
+                \clip (-4,1) rectangle (4,1);
+            \end{tikzpicture}
+        }%
+        \only<3>{%
+            \begin{tikzpicture}
+                % planes
+                \draw (0,-1) node[below]{$\mathbf{b}$} -- (0,1) ;
+                \draw (2,-1) node[below]{$\mathbf{a}$} -- (2,1) ;
+                % intial points
+                \draw[blue,fill=blue] (-0.5,0.5) circle (0.05);
+                \draw[red,fill=red]  (-3,-0.5) circle (0.05);
+                % first reflexion
+                \draw[gray,fill=gray] (0.5,0.5) circle (0.05);
+                \draw[gray,fill=gray]  (3,-0.5) circle (0.05);
+                % second reflexion
+                \draw[blue,fill=blue] (3.5,0.5) circle (0.05);
+                \draw[red,fill=red]  (1,-0.5) circle (0.05);
+                % line
+                \path[gray,->,>=latex] (0.5,0.5) edge[out=20,in=160] (3.5,0.5);
+                \path[gray,->,>=latex] (3,-0.5)  edge[out=170,in=10] (1,-0.5);
+                % clip
+                \clip (-4,1) rectangle (4,1);
+            \end{tikzpicture}
+        }%
+        \only<4>{%
+            \begin{tikzpicture}
+                % planes
+                \draw (0,-1) node[below]{$\mathbf{b}$} -- (0,1) ;
+                \draw (2,-1) node[below]{$\mathbf{a}$} -- (2,1) ;
+                % intial points
+                \draw[blue,fill=blue] (-0.5,0.5) circle (0.05);
+                \draw[red,fill=red]  (-3,-0.5) circle (0.05);
+                % second reflexion
+                \draw[blue,fill=blue] (3.5,0.5) circle (0.05);
+                \draw[red,fill=red]  (1,-0.5) circle (0.05);
+                % line
+                \draw[gray,thick,->,>=latex] (-0.5,0.5) -- node[midway,above,black]{$2\mathbf{t}$} (3.5,0.5);
+                \draw[gray,thick,->,>=latex] (-3,-0.5)  -- node[midway,above,black]{$2\mathbf{t}$} (1,-0.5);
+                %translation
+                \draw[gray,thick,->,>=latex] (0,-0.8) -- node[midway,below,black]{$\mathbf{t}$} (2,-0.8);
+                % clip
+                \clip (-4,1) rectangle (4,1);
+            \end{tikzpicture}
+        }%
+        \only<5>{%
+            \begin{tikzpicture}
+                % planes
+                \draw[white] (0,-1) node[below]{$\mathbf{b}$} -- (0,1) ;
+                \draw[white] (2,-1) node[below]{$\mathbf{a}$} -- (2,1) ;
+                % intial points
+                \draw[blue,fill=blue] (-0.5,0.5) circle (0.05);
+                \draw[red,fill=red]  (-3,-0.5) circle (0.05);
+                % second reflexion
+                \draw[blue,fill=blue] (3.5,0.5) circle (0.05);
+                \draw[red,fill=red]  (1,-0.5) circle (0.05);
+                % line
+                0\draw[gray,thick,->,>=latex] (-0.5,0.5) -- node[midway,above,black]{$2\mathbf{t}$} (3.5,0.5);
+                \draw[gray,thick,->,>=latex] (-3,-0.5)  -- node[midway,above,black]{$2\mathbf{t}$} (1,-0.5);
+                % clip
+                \clip (-4,1) rectangle (4,1);
+            \end{tikzpicture}
+        }%
+    \end{center}
+    %\textbf{Double reflection:}
+    %\begin{itemize}
+    %\item $\mathbf{T}=\mathbf{ab} = 1 + \displaystyle\frac{t}{2}\mathbf{P}$
+    %\item $\mathbf{X}'=\mathbf{ab} \mathbf{X} (\mathbf{ab})^{-1} = \mathbf{T} \mathbf{X} \mathbf{\widetilde{T}}$
+    %\item $\mathbf{P} \rightarrow$ point at infinity $\Rightarrow \mathbf{P}^2=0$ 
+    %\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{But in 3D?}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Interpretation}
+    \begin{center}
+        \begin{tikzpicture}
+            % planes
+            \draw (0,-1) node[below]{$\mathbf{b}$} -- (0,1) ;
+            \draw (2,-1) node[below]{$\mathbf{a}$} -- (2,1) ;
+            % intial points
+            \draw[blue,fill=blue] (-0.5,0.5) circle (0.05);
+            \draw[red,fill=red]  (-3,-0.5) circle (0.05);
+            % second reflexion
+            \draw[blue,fill=blue] (3.5,0.5) circle (0.05);
+            \draw[red,fill=red]  (1,-0.5) circle (0.05);
+            % line
+            \draw[gray,thick,->,>=latex] (-0.5,0.5) -- node[midway,above,black]{$2\mathbf{t}$} (3.5,0.5);
+            \draw[gray,thick,->,>=latex] (-3,-0.5)  -- node[midway,above,black]{$2\mathbf{t}$} (1,-0.5);
+            %translation
+            \draw[gray,thick,->,>=latex] (0,-0.8) -- node[midway,below,black]{$\mathbf{t}$} (2,-0.8);
+            % clip
+            \clip (-4,1) rectangle (4,1);
+        \end{tikzpicture}
+    \end{center}
+    \begin{itemize}
+        \item any combinaison of 2 successive reflexions $\leftrightarrow$ combinaison of rotation / translation \\
+              $\hookrightarrow$ rigid transformation
+        \item quaternions and dual quaternions are a special form of motors, in 3D.
+        \item motors (double reflexion) works in any dimension !
+    \end{itemize}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%
+\begin{frame}{Reflexions are generic}
+    $$ \mathbf{a}\Big( \textcolor{blue}{\mathbf{x} \wedge \mathbf{y} \wedge  ... \wedge \mathbf{z}} \Big) \mathbf{a}^{-1}
+        = (\mathbf{a}\textcolor{blue}{\mathbf{x}} \mathbf{a}^{-1}) \wedge (\mathbf{a}\textcolor{blue}{\mathbf{y}} \mathbf{a}^{-1}) \wedge  ... \wedge  (\mathbf{a}\textcolor{blue}{\mathbf{z}} \mathbf{a}^{-1})$$
+    ~\\
+    \textbf{Same versor for any object:}
+    $$
+        \mathbf{a}
+        \left\lbrace
+        \begin{array}{c}
+            \text{point} \\
+            \text{line}  \\
+            \text{plane} \\
+            \vdots
+        \end{array}
+        \right\rbrace
+        \mathbf{a}^{-1}
+    $$
+\end{frame}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Demo}
+
+%%%%%%%%%%%%%%%%
+\begin{frame}{Demo in Python}
+    \hfill\href{https://tbuli.github.io/teahouse/lab/index.html}{\beamergotobutton{a cube and a string}}
+\end{frame}
+
+
+\begin{frame}{Geometric algebra}
+    conclusion
+\end{frame}
+
+
+
 \end{document}
+
+

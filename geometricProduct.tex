@@ -1,0 +1,293 @@
+\begin{frame}{Transition}
+
+    \centering
+
+
+    \begin{tikzpicture}[scale=0.5]
+
+        \begin{scope}[shift={(-4,0)}]
+            \coordinate (O) at (0,0);
+
+            \def\xa{2.5}
+            \def\ya{2.5}
+            \coordinate (a) at (\xa,\ya);
+
+            \def\xb{4}
+            \def\yb{0}
+            \coordinate (b) at (\xb,\yb);
+
+            \draw[ultra thick, u, ->, >=Triangle] (O) -- (a);
+            \draw[ultra thick, v, ->, >=Triangle] (O) -- (b);
+        \end{scope}
+
+        \begin{scope}[shift={(3,0)}]
+            \coordinate (O) at (0,0);
+
+            \def\xa{2.5}
+            \def\ya{2.5}
+            \coordinate (a) at (\xa,\ya);
+
+            \def\xb{4}
+            \def\yb{0}
+            \coordinate (b) at (\xb,\yb);
+
+            \draw[ultra thick, u, ->, >=Triangle] (O) -- (a);
+            \draw[ultra thick, v, ->, >=Triangle] (O) -- (b);
+            \draw[ultra thick, gray, dotted, overlay] (\xa,0) -- (\xa, \ya);
+            \draw[decorate,gray, ultra thick,decoration={brace,amplitude=5pt,mirror}] (0,-0.1) -- (\xa, -0.1);
+
+        \end{scope}
+
+        \begin{scope}[shift={(9,0)}]
+            \coordinate (O) at (0,0);
+
+            \def\xa{2.5}
+            \def\ya{2.5}
+            \coordinate (a) at (\xa,\ya);
+
+            \def\xb{4}
+            \def\yb{0}
+            \coordinate (b) at (\xb,\yb);
+
+            \draw[ultra thick, A, ->, >=Triangle] ({\xa+\xb},{\ya}) -- (b);
+            \draw[ultra thick, A, ->, >=Triangle] (a) -- ({\xa+\xb},{\ya});
+            \draw[ultra thick, A, ->, >=Triangle] (b) -- (O);
+            \draw[ultra thick, A, ->, >=Triangle] (O) -- (a);
+
+            \draw[draw=none, fill=A, opacity=0.2] ({\xa+\xb},{\ya}) -- (b) -- (O) -- (a) -- cycle;
+            % \node[A] at (3,1.25) {$\vec{A}$};
+            \draw[A!60, thick,<-,>=Triangle] (3.75,1.25) arc[radius=0.5cm,start angle=0,delta angle=270];
+
+            \draw[ultra thick, u, ->, >=Triangle] (O) -- (a);
+            \draw[ultra thick, v, ->, >=Triangle] (O) -- (b);
+        \end{scope}
+        % \draw[red] (current bounding box.south west) rectangle (current bounding box.north east);
+    \end{tikzpicture}
+
+    \Huge
+    \only<1>{
+        $\textcolor{u}{\vec{u}} \textcolor{v}{\vec{v}} ~~~= \textcolor{u}{\vec{u}} \, \textcolor{gray}{\cdot} \, \textcolor{v}{\vec{v}} ~~+~~ \textcolor{u}{\vec{u}} \, \textcolor{A}{\wedge}\, \textcolor{v}{\vec{v}}$
+    }
+    \only<2-3>
+    {
+        $\textcolor{u}{\vec{u}} \textcolor{v}{\vec{v}} ~~~= \underbracket[0.5pt][7pt]{\textcolor{u}{\vec{u}} \, \textcolor{gray}{\cdot} \, \textcolor{v}{\vec{v}}}_\text{\huge Scalar} ~~+~~ \underbracket[0.5pt][7pt]{\textcolor{u}{\vec{u}} \, \textcolor{A}{\wedge}\, \textcolor{v}{\vec{v}}}_\text{\huge Bivector}$
+    }
+
+    \only<3>
+    {
+        %add space
+        \vspace{1cm}
+        \Huge $z ~~=~~a~~~~~+~~~~~ b \textcolor{midredgreen}{\dot{\imath}}$
+    }
+\end{frame}
+
+
+\begin{frame}[t]{Geometric Product - vectors}
+
+    \begin{center}
+
+        \only<1-3>
+        {
+            \Huge $\textcolor{blue}{\vec{a}} \textcolor{red}{\vec{b}} = \textcolor{blue}{\vec{a}} \cdot \textcolor{red}{\vec{b}} + \textcolor{blue}{\vec{a}} \wedge \textcolor{red}{\vec{b}}$
+        }
+
+
+        \Large
+
+        \only<2>
+        {
+            \vspace{1em}
+            \begin{align*}
+                \textcolor{blue}{\vec{a}}^2 & = \textcolor{blue}{\vec{a}} \cdot \textcolor{blue}{\vec{a}} + \textcolor{blue}{\vec{a}} \wedge \textcolor{blue}{\vec{a}} \\
+                                            & = \textcolor{blue}{\vec{a}} \cdot \textcolor{blue}{\vec{a}}                                                              \\
+                                            & = \| \textcolor{blue}{\vec{a}} \|^2
+            \end{align*}
+        }
+
+        \only<3>
+        {
+            $\textcolor{blue}{\vec{a}}^2 = \| \textcolor{blue}{\vec{a}} \|^2$
+
+            \vspace{1em}
+            $\frac{\textcolor{blue}{\vec{a}}}{\| \textcolor{blue}{\vec{a}} \|^2} \textcolor{blue}{\vec{a}} = \frac{\| \textcolor{blue}{\vec{a}} \|^2}{\| \textcolor{blue}{\vec{a}} \|^2} = 1$
+
+            $\textcolor{blue}{\vec{a}}^{-1} = \frac{\textcolor{blue}{\vec{a}}}{\| \textcolor{blue}{\vec{a}} \|^2}$
+        }
+    \end{center}
+\end{frame}
+
+
+
+\begin{frame}[t]{Geometric Product - basis vectors}
+
+    \begin{center}
+
+        \Large
+        $\textcolor{red}{e_x} \quad \textcolor{green}{e_y} \quad \textcolor{blue}{e_z} \quad \cdots$
+        \only<1>
+        {
+            \vspace{1em}
+
+            $e_i^2 = \| e_i \| = 1$
+            \begin{align*}
+                e_i e_j & = e_i \cdot e_j + e_i \wedge e_j  \\
+                        & = e_i \wedge e_j \quad (i \neq j) \\
+                        & = - e_j e_i \quad (i \neq j)
+            \end{align*}
+        }
+
+        \only<2>
+        {
+            \begin{align*}
+                e_i^2   & = 1                           \\
+                e_i e_j & = e_i \wedge e_j              \\
+                e_i e_j & = - e_j e_i \qquad (i \neq j) \\
+                e_i e_j & = e_{ij}
+            \end{align*}
+        }
+
+
+    \end{center}
+\end{frame}
+
+
+
+\begin{frame}[t]{Geometric Product - 2d example}
+
+
+    \begin{center}
+        \Large
+        $e_i^2 = 1; \quad e_i e_j = - e_j e_i \quad (i \neq j)$ \\
+        $\vec{u}=a_1 \textcolor{red}{e_x}+ b_1 \textcolor{green}{e_y} \quad \vec{v}=a_2 \textcolor{red}{e_x}+ b_2 \textcolor{green}{e_y}$
+
+    \end{center}
+
+    \vspace{-2em}
+    \large
+    \begin{align*}
+        \visible<2->{\vec{u}\vec{v}= & (a_1 \textcolor{red}{e_x}+ b_1 \textcolor{green}{e_y}) (a_2 \textcolor{red}{e_x}+ b_2 \textcolor{green}{e_y}) \\}
+        \only<3>{=                   & a_1 \textcolor{red}{e_x}(a_2 \textcolor{red}{e_x}+ b_2 \textcolor{green}{e_y}) +                                                                        \\
+                                     & b_1 \textcolor{green}{e_y}(a_2 \textcolor{red}{e_x}+ b_2 \textcolor{green}{e_y})\\}
+        \only<4>{=                   & a_1 a_2 \textcolor{red}{e_x} \textcolor{red}{e_x} + a_1 b_2 \textcolor{red}{e_x} \textcolor{green}{e_y}                                                 \\
+                                     & b_1 a_2 \textcolor{green}{e_y} \textcolor{red}{e_x} + b_1 b_2 \textcolor{green}{e_y} \textcolor{green}{e_y}\\}
+        \only<5>{=                   & a_1 a_2  + a_1 b_2 \textcolor{red}{e_x} \textcolor{green}{e_y}                                                                                          \\
+                                     & b_1 a_2 \textcolor{green}{e_y} \textcolor{red}{e_x} + b_1 b_2 \\}
+        \only<6>{=                   & a_1 a_2  + b_1 b_2 + a_1 b_2 \textcolor{red}{e_x} \textcolor{green}{e_y} + b_1 a_2 \textcolor{green}{e_y} \textcolor{red}{e_x}\\}
+        \only<7>{=                   & a_1 a_2  + b_1 b_2 + a_1 b_2 \textcolor{red}{e_x} \textcolor{green}{e_y} - b_1 a_2 \textcolor{red}{e_x} \textcolor{green}{e_y}\\}
+        \only<8>{=                   & a_1 a_2  + b_1 b_2 + (a_1 b_2 - b_1 a_2) \textcolor{red}{e_x} \textcolor{green}{e_y}\\}
+        \only<9>{=                   & a_1 a_2  + b_1 b_2 + (a_1 b_2 - b_1 a_2) \textcolor{midredgreen}{e_{xy}}\\}
+        \only<10->{=                 & a_1 a_2  + b_1 b_2 + (a_1 b_2 - b_1 a_2) \textcolor{mixAll}{\mathbf{I}}_2\\}
+    \end{align*}
+\end{frame}
+
+
+
+\begin{frame}{2d pseudoscalar}
+    \centering
+    \Large
+    \only<1-7>{$(\textcolor{mixAll}{\mathbf{I}}_2)^2$}
+    \only<2-5>{$=(\textcolor{midredgreen}{e_{xy}})^2$}
+    \only<3>{$=\textcolor{red}{e_x} \textcolor{green}{e_y} \textcolor{red}{e_x} \textcolor{green}{e_y}$}
+    \only<4>{$=-\textcolor{red}{e_x} \textcolor{green}{e_y} \textcolor{green}{e_y} \textcolor{red}{e_x}$}
+    \only<5>{$=-\textcolor{red}{e_x} \textcolor{red}{e_x}$}
+    \only<6-7>{$=-1$}
+    \only<7>{$=\textcolor{mixAll}{\dot{\imath}}^2$}
+    \only<8->{$\textcolor{mixAll}{\mathbf{I}}_2 \equiv \textcolor{mixAll}{\dot{\imath}}$}
+
+    \only<9->{
+        $\vec{u}\vec{v} = a_1 a_2  + b_1 b_2 + (a_1 b_2 - b_1 a_2) \textcolor{mixAll}{\dot{\imath}}$
+    }
+
+    \vspace{2em}
+
+    \only<10->{
+        $\vec{u}\vec{v}$ is a complex number!
+    }
+
+    \visible<11>{
+        \renewcommand\arraystretch{1.0}
+        ~\\~\\
+        \textbf{Complex Numbers are naturally included in 2d GA!}
+    }
+\end{frame}
+
+
+
+\begin{frame}[t]{Geometric Product - 3d example}
+
+
+    \begin{center}
+        \Large
+        $e_i^2 = 1; \quad e_i e_j = - e_j e_i \quad (i \neq j)$ \\
+        $\vec{u}=a_1 \textcolor{red}{e_x}+ b_1 \textcolor{green}{e_y}+ c_1 \textcolor{blue}{e_z} \quad \vec{v}=a_2 \textcolor{red}{e_x}+ b_2 \textcolor{green}{e_y}+ c_2 \textcolor{blue}{e_z}$
+
+    \end{center}
+
+    \vspace{-2em}
+    \large
+    \begin{align*}
+        \visible<2->{\vec{u}\vec{v}= & (a_1 \textcolor{red}{e_x}+ b_1 \textcolor{green}{e_y}+ c_1 \textcolor{blue}{e_z}) (a_2 \textcolor{red}{e_x}+ b_2 \textcolor{green}{e_y}+ c_2 \textcolor{blue}{e_z}) \\}
+        \only<3>{=                   & a_1 \textcolor{red}{e_x}(a_2 \textcolor{red}{e_x}+ b_2 \textcolor{green}{e_y}+ c_2 \textcolor{blue}{e_z}) +                                                                                   \\
+                                     & b_1 \textcolor{green}{e_y}(a_2 \textcolor{red}{e_x}+ b_2 \textcolor{green}{e_y}+ c_2 \textcolor{blue}{e_z}) +                                                                                 \\
+                                     & c_1 \textcolor{blue}{e_z}(a_2 \textcolor{red}{e_x}+ b_2 \textcolor{green}{e_y}+ c_2 \textcolor{blue}{e_z}) \\}
+        \only<4>{=                   & a_1 a_2 \textcolor{red}{e_x} \textcolor{red}{e_x} + a_1 b_2 \textcolor{red}{e_x} \textcolor{green}{e_y} + a_1 c_2 \textcolor{red}{e_x} \textcolor{blue}{e_z} +                                \\
+                                     & b_1 a_2 \textcolor{green}{e_y} \textcolor{red}{e_x} + b_1 b_2 \textcolor{green}{e_y} \textcolor{green}{e_y} + b_1 c_2 \textcolor{green}{e_y} \textcolor{blue}{e_z} +                          \\
+                                     & c_1 a_2 \textcolor{blue}{e_z} \textcolor{red}{e_x} + c_1 b_2 \textcolor{blue}{e_z} \textcolor{green}{e_y} + c_1 c_2 \textcolor{blue}{e_z} \textcolor{blue}{e_z}\\}
+        \only<5>{=                   & a_1 a_2  + a_1 b_2 \textcolor{red}{e_x} \textcolor{green}{e_y} + a_1 c_2 \textcolor{red}{e_x} \textcolor{blue}{e_z} +                                                                         \\
+                                     & b_1 a_2 \textcolor{green}{e_y} \textcolor{red}{e_x} + b_1 b_2  + b_1 c_2 \textcolor{green}{e_y} \textcolor{blue}{e_z} +                                                                       \\
+                                     & c_1 a_2 \textcolor{blue}{e_z} \textcolor{red}{e_x} + c_1 b_2 \textcolor{blue}{e_z} \textcolor{green}{e_y} + c_1 c_2 \\}
+        \only<6>{=                   & a_1 a_2  + b_1 b_2 + c_1 c_2 +                                                                                                                                                                \\
+                                     & a_1 b_2 \textcolor{red}{e_x} \textcolor{green}{e_y} + b_1 a_2 \textcolor{green}{e_y} \textcolor{red}{e_x} +                                                                                   \\
+                                     & a_1 c_2 \textcolor{red}{e_x} \textcolor{blue}{e_z} + c_1 a_2 \textcolor{blue}{e_z} \textcolor{red}{e_x} +                                                                                     \\
+                                     & b_1 c_2 \textcolor{green}{e_y} \textcolor{blue}{e_z} + c_1 b_2 \textcolor{blue}{e_z} \textcolor{green}{e_y} \\}
+        \only<7>{=                   & a_1 a_2  + b_1 b_2 + c_1 c_2 +                                                                                                                                                                \\
+                                     & a_1 b_2 \textcolor{red}{e_x} \textcolor{green}{e_y} - b_1 a_2 \textcolor{red}{e_x} \textcolor{green}{e_y} +                                                                                   \\
+                                     & a_1 c_2 \textcolor{red}{e_x} \textcolor{blue}{e_z} - c_1 a_2 \textcolor{red}{e_x} \textcolor{blue}{e_z} +                                                                                     \\
+                                     & b_1 c_2 \textcolor{green}{e_y} \textcolor{blue}{e_z} - c_1 b_2 \textcolor{green}{e_y} \textcolor{blue}{e_z} \\}
+        \only<8>{=                   & a_1 a_2  + b_1 b_2 + c_1 c_2 +                                                                                                                                                                \\
+                                     & (a_1 b_2 - b_1 a_2) \textcolor{red}{e_x} \textcolor{green}{e_y} +                                                                                                                             \\
+                                     & (a_1 c_2 - c_1 a_2) \textcolor{red}{e_x} \textcolor{blue}{e_z} +                                                                                                                              \\
+                                     & (b_1 c_2 - c_1 b_2) \textcolor{green}{e_y} \textcolor{blue}{e_z} \\}
+        \only<9>{=                   & a_1 a_2  + b_1 b_2 + c_1 c_2 +                                                                                                                                                                \\
+                                     & (a_1 b_2 - b_1 a_2) \textcolor{midredgreen}{e_{xy}} +                                                                                                                                         \\
+                                     & (a_1 c_2 - c_1 a_2) \textcolor{midredblue}{e_{xz}} +                                                                                                                                          \\
+                                     & (b_1 c_2 - c_1 b_2) \textcolor{midgreenblue}{e_{yz}} \\}
+        \only<10>{=                  & a_1 a_2  + b_1 b_2 + c_1 c_2 + (a_1 b_2 - b_1 a_2) \textcolor{midredgreen}{e_{xy}} +                                                                                                          \\
+                                     & ~~~~~~~~~~~~~~~~~~~~~~~~~~~(a_1 c_2 - c_1 a_2) \textcolor{midredblue}{e_{xz}} +                                                                                                               \\
+                                     & ~~~~~~~~~~~~~~~~~~~~~~~~~~~(b_1 c_2 - c_1 b_2) \textcolor{midgreenblue}{e_{yz}} \\}
+    \end{align*}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%
+\begin{frame}{3d bivectors}
+    \centering
+    \Large
+    \textbf{If we rename}
+    $$
+        \textcolor{midgreenblue}{i} \equiv -\textcolor{midgreenblue}{e_{yz}}~~~~~
+        \textcolor{midredblue}{j} \equiv \textcolor{midredblue}{e_{xz}}~~~~~
+        \textcolor{midredgreen}{k} \equiv -\textcolor{midredgreen}{e_{xy}}
+    $$
+    \textbf{then}
+    \renewcommand\arraystretch{1.5}
+    $$
+        \left.
+        \begin{array}{r}
+            \textcolor{midgreenblue}{i}^2  = \textcolor{midredblue}{j}^2 = \textcolor{midredgreen}{k}^2 = -1 \\
+            \textcolor{midgreenblue}{i}\textcolor{midredblue}{j}=\textcolor{midredgreen}{k} ~~~~
+            \textcolor{midredblue}{j}\textcolor{midredgreen}{k}=\textcolor{midgreenblue}{i} ~~~~
+            \textcolor{midredgreen}{k}\textcolor{midgreenblue}{i}=\textcolor{midredblue}{j}                  \\
+            \textcolor{midredblue}{j}\textcolor{midgreenblue}{i}=-\textcolor{midgreenblue}{i}\textcolor{midredblue}{j} ~~~~
+            \textcolor{midredgreen}{k}\textcolor{midredblue}{j}=-\textcolor{midredblue}{j}\textcolor{midredgreen}{k} ~~~~
+            \textcolor{midgreenblue}{i}\textcolor{midredgreen}{k}=-\textcolor{midredgreen}{k}\textcolor{midgreenblue}{i}
+        \end{array}
+        \pause
+        \right\rbrace
+        \text{Hamilton's algebra}
+    $$
+    \renewcommand\arraystretch{1.0}
+    \pause
+    ~\\
+    \textbf{Quaternions are naturally included in 3d Geometric Algebra!}
+\end{frame}

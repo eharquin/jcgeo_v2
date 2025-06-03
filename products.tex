@@ -177,16 +177,16 @@
 
 
 
-\begin{frame}[t]{Bivectors and Outer Product}
+\begin{frame}[t]{Outer Product properties}
 
     \begin{center}
-        \only<1-2>{\Huge $\textcolor{u}{\vec{u}} \wedge \textcolor{v}{\vec{v}} =\textcolor{A}{\vec{A}}$}
+        \only<1>{\Huge $\textcolor{u}{\vec{u}} \wedge \textcolor{v}{\vec{v}} =\textcolor{A}{\vec{A}}$}
     \end{center}
 
     \begin{columns}
 
         \column{0.5\textwidth}
-        \only<1-2>
+        \only<1>
         {
             \begin{tabular}{rcl}
                 $\lambda \wedge \textcolor{u}{\vec{u}}$                                                & $=$ & $\lambda\,\textcolor{u}{\vec{u}}$                                                                                 \\
@@ -200,13 +200,6 @@
         }
 
         \vspace{2em}
-
-        \only<2>
-        {
-            \begin{alertblock}{Limitations (again)}
-                Not enough information about the vectors
-            \end{alertblock}
-        }
 
 
         \column{0.5\textwidth}
@@ -241,63 +234,6 @@
                         \draw[ultra thick, v, ->, >=Triangle] (O) -- (b);
                     \end{scope}
                 }
-
-
-                \visible<2>
-                {
-                    \begin{scope}[scale=0.6, shift={(3,0)}]
-                        \coordinate (O) at (0,0);
-
-                        \def\xa{2.5}
-                        \def\ya{2.5}
-                        \coordinate (a) at (\xa,\ya);
-
-                        \def\xb{4}
-                        \def\yb{0}
-                        \coordinate (b) at (\xb,\yb);
-
-                        \draw[ultra thick, A, ->, >=Triangle] ({\xa+\xb},{\ya}) -- (b);
-                        \draw[ultra thick, A, ->, >=Triangle] (a) -- ({\xa+\xb},{\ya});
-                        \draw[ultra thick, A, ->, >=Triangle] (b) -- (O);
-                        \draw[ultra thick, A, ->, >=Triangle] (O) -- (a);
-
-                        \draw[draw=none, fill=A, opacity=0.2] ({\xa+\xb},{\ya}) -- (b) -- (O) -- (a) -- cycle;
-                        % \node[A] at (3,1.25) {$\vec{A}$};
-                        \draw[A!60, thick,<-,>=Triangle] (3.75,1.25) arc[radius=0.5cm,start angle=0,delta angle=270];
-                        % point on the center of the parallelogram
-
-                        \draw[ultra thick, u, ->, >=Triangle] (O) -- (a);
-                        \draw[ultra thick, v, ->, >=Triangle] (O) -- (b);
-
-                        \node at (3.25,-1.4) {\huge$=$};
-
-                        \begin{scope}[shift={(1.25,-5)}]
-                            \coordinate (O) at (0,0);
-
-                            \def\xa{0}
-                            \def\ya{2.5}
-                            \coordinate (a) at (\xa,\ya);
-
-                            \def\xb{4}
-                            \def\yb{0}
-                            \coordinate (b) at (\xb,\yb);
-
-                            \draw[ultra thick, A, ->, >=Triangle] ({\xa+\xb},{\ya}) -- (b);
-                            \draw[ultra thick, A, ->, >=Triangle] (a) -- ({\xa+\xb},{\ya});
-                            \draw[ultra thick, A, ->, >=Triangle] (b) -- (O);
-                            \draw[ultra thick, A, ->, >=Triangle] (O) -- (a);
-
-                            \draw[draw=none, fill=A, opacity=0.2] ({\xa+\xb},{\ya}) -- (b) -- (O) -- (a) -- cycle;
-                            % \node[A] at (3,1.25) {$\vec{A}$};
-                            \draw[A!60, thick,<-,>=Triangle] (2.5,1.25) arc[radius=0.5cm,start angle=0,delta angle=270];
-                            % point on the center of the parallelogram
-
-                            \draw[ultra thick, u, ->, >=Triangle] (O) -- (a);
-                            \draw[ultra thick, v, ->, >=Triangle] (O) -- (b);
-
-                        \end{scope}
-                    \end{scope}
-                }
             \end{tikzpicture}
         \end{minipage}
 
@@ -306,7 +242,7 @@
 \end{frame}
 
 
-\begin{frame}{Bivector in 2D}
+\begin{frame}{Bivector in 2d}
     \Large
     \[
         \textcolor{u}{\vec{u}} = a_1 \textcolor{red}{\mathbf{e}_x} + b_1 \textcolor{green}{\mathbf{e}_y}
@@ -327,7 +263,7 @@
 \end{frame}
 
 
-\begin{frame}{Bivector in 3D}
+\begin{frame}{Bivector in 3d}
     \Large
     \[
         \textcolor{u}{\vec{u}} = a_1 \textcolor{red}{\mathbf{e}_x} + b_1 \textcolor{green}{\mathbf{e}_y} + c_1 \textcolor{blue}{\mathbf{e}_z}
@@ -353,8 +289,8 @@
 
     \textbf{Note}: looks like the cross product of \(\mathbb{R}^3\) but:
     \begin{itemize}
-        \item is actually defined in any dimension
-        \item is associative: \((\textcolor{u}{\vec{u}} \wedge \textcolor{v}{\vec{v}}) \wedge \textcolor{w}{\vec{w}} = \textcolor{u}{\vec{u}} \wedge (\textcolor{v}{\vec{v}} \wedge \textcolor{w}{\vec{w}})\)
+        \item defined in any dimension
+        \item associativity: \((\textcolor{u}{\vec{u}} \wedge \textcolor{v}{\vec{v}}) \wedge \textcolor{w}{\vec{w}} = \textcolor{u}{\vec{u}} \wedge (\textcolor{v}{\vec{v}} \wedge \textcolor{w}{\vec{w}})\)
     \end{itemize}
 \end{frame}
 
