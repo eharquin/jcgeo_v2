@@ -260,7 +260,7 @@
 
 
 %%%%%%%%%%%%%%%%%%
-\begin{frame}{3d bivectors}
+\begin{frame}[t]{3d bivectors}
     \centering
     \Large
     \textbf{If we rename}
@@ -269,25 +269,36 @@
         \textcolor{midredblue}{j} \equiv \textcolor{midredblue}{e_{xz}}~~~~~
         \textcolor{midredgreen}{k} \equiv -\textcolor{midredgreen}{e_{xy}}
     $$
-    \textbf{then}
-    \renewcommand\arraystretch{1.5}
-    $$
-        \left.
-        \begin{array}{r}
-            \textcolor{midgreenblue}{i}^2  = \textcolor{midredblue}{j}^2 = \textcolor{midredgreen}{k}^2 = -1 \\
-            \textcolor{midgreenblue}{i}\textcolor{midredblue}{j}=\textcolor{midredgreen}{k} ~~~~
-            \textcolor{midredblue}{j}\textcolor{midredgreen}{k}=\textcolor{midgreenblue}{i} ~~~~
-            \textcolor{midredgreen}{k}\textcolor{midgreenblue}{i}=\textcolor{midredblue}{j}                  \\
-            \textcolor{midredblue}{j}\textcolor{midgreenblue}{i}=-\textcolor{midgreenblue}{i}\textcolor{midredblue}{j} ~~~~
-            \textcolor{midredgreen}{k}\textcolor{midredblue}{j}=-\textcolor{midredblue}{j}\textcolor{midredgreen}{k} ~~~~
-            \textcolor{midgreenblue}{i}\textcolor{midredgreen}{k}=-\textcolor{midredgreen}{k}\textcolor{midgreenblue}{i}
-        \end{array}
-        \pause
-        \right\rbrace
-        \text{Hamilton's algebra}
-    $$
-    \renewcommand\arraystretch{1.0}
-    \pause
-    ~\\
-    \textbf{Quaternions are naturally included in 3d Geometric Algebra!}
+
+    \only<2-3>{
+        \textbf{then}
+        \renewcommand\arraystretch{1.5}
+        $$
+            \left.
+            \begin{array}{r}
+                \textcolor{midgreenblue}{i}^2  = \textcolor{midredblue}{j}^2 = \textcolor{midredgreen}{k}^2 = -1 \\
+                \textcolor{midgreenblue}{i}\textcolor{midredblue}{j}=\textcolor{midredgreen}{k} ~~~~
+                \textcolor{midredblue}{j}\textcolor{midredgreen}{k}=\textcolor{midgreenblue}{i} ~~~~
+                \textcolor{midredgreen}{k}\textcolor{midgreenblue}{i}=\textcolor{midredblue}{j}                  \\
+                \textcolor{midredblue}{j}\textcolor{midgreenblue}{i}=-\textcolor{midgreenblue}{i}\textcolor{midredblue}{j} ~~~~
+                \textcolor{midredgreen}{k}\textcolor{midredblue}{j}=-\textcolor{midredblue}{j}\textcolor{midredgreen}{k} ~~~~
+                \textcolor{midgreenblue}{i}\textcolor{midredgreen}{k}=-\textcolor{midredgreen}{k}\textcolor{midgreenblue}{i}
+            \end{array}
+            \right\rbrace
+            \only<3>
+            {
+                \text{Hamilton's algebra}
+            }
+        $$
+    }
+    \only<4-5>
+    {
+        \begin{align*}
+            \vec{u}\vec{v} & = a_1 a_2  + b_1 b_2 + c_1 c_2+(c_1 b_2 - b_1 c_2) \textcolor{midgreenblue}{\dot{\imath}}+ \\
+                           & ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(a_1 c_2 - c_1 a_2) \textcolor{midredblue}{\dot{\jmath}} +  \\
+                           & ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(b_1 a_2 - a_1 b_2) \textcolor{midredgreen}{k}              \\
+        \end{align*}
+
+        \textbf{Quaternions are naturally included in 3d Geometric Algebra!}
+    }
 \end{frame}
