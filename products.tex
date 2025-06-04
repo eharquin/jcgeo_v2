@@ -184,10 +184,11 @@
     \end{center}
 
     \begin{columns}
-
         \column{0.5\textwidth}
         \only<1>
         {
+            $~~~~~~~~~~~~~~~~~ \lambda \in \mathbb{R}$
+
             \begin{tabular}{rcl}
                 $\lambda \wedge \textcolor{u}{\vec{u}}$                                                & $=$ & $\lambda\,\textcolor{u}{\vec{u}}$                                                                                 \\
                 $(\textcolor{u}{\vec{u}} \wedge \textcolor{v}{\vec{v}}) \wedge \textcolor{w}{\vec{w}}$ & $=$ & $\textcolor{u}{\vec{u}} \wedge (\textcolor{v}{\vec{v}} \wedge \textcolor{w}{\vec{w}})$                            \\
@@ -195,7 +196,7 @@
                 $\textcolor{u}{\vec{u}} \wedge (\lambda \textcolor{v}{\vec{v}})$                       & $=$ & $\lambda\,(\textcolor{u}{\vec{u}} \wedge \textcolor{v}{\vec{v}})$                                                 \\
                 \\
                 $\textcolor{u}{\vec{u}} \wedge \textcolor{v}{\vec{v}}$                                 & $=$ & $-\textcolor{v}{\vec{v}} \wedge \textcolor{u}{\vec{u}}$                                                           \\
-                $\textcolor{u}{\vec{u}} \wedge \lambda \textcolor{u}{\vec{u}}$                         & $=$ & $0$                                                                                                               \\
+                $\textcolor{u}{\vec{u}} \wedge \textcolor{u}{\vec{u}}$                                 & $=$ & $0$                                                                                                               \\
             \end{tabular}
         }
 
@@ -241,24 +242,67 @@
 
 \end{frame}
 
+\begin{frame}{Formal sum}
+    \large
+    \begin{columns}[t]  % Align content to top
+        \column{0.48\textwidth}
+        \centering
+        \textbf{Linear Algebra}
+        \vspace{1em}
 
-\begin{frame}{Bivector in 2d}
+        \[
+            \vec{\mathbf{u}} =
+            \begin{pmatrix}
+                a \\
+                b \\
+                c \\
+                \vdots
+            \end{pmatrix}
+            \textcolor{gray}{
+                \begin{pmatrix}
+                    \textcolor{red}{e_x}   \\
+                    \textcolor{green}{e_y} \\
+                    \textcolor{blue}{e_z}  \\
+                    \vdots
+                \end{pmatrix}
+            }
+        \]
+
+        \column{0.48\textwidth}
+        \centering
+        \textbf{Geometric Algebra}
+        \vspace{3em}
+
+        \[
+            \vec{\mathbf{u}} =
+            a\, \textcolor{red}{e_x} +
+            b\, \textcolor{green}{e_y} +
+            c\, \textcolor{blue}{e_z} + \cdots
+        \]
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}[t]{Bivector in 2d}
+
     \Large
-    \[
-        \textcolor{u}{\vec{u}} = a_1 \textcolor{red}{\mathbf{e}_x} + b_1 \textcolor{green}{\mathbf{e}_y}
-        \qquad
-        \textcolor{v}{\vec{v}} = a_2 \textcolor{red}{\mathbf{e}_x} + b_2 \textcolor{green}{\mathbf{e}_y}
-    \]
+    \begin{center}
+        $e_i \wedge e_i = 0; \quad e_i \wedge e_j = - e_j \wedge_i \quad (i \neq j)$ \\
+        \vspace{1em}
+        $\textcolor{u}{\vec{u}} = a_1 \textcolor{red}{\mathbf{e}_x} + b_1 \textcolor{green}{\mathbf{e}_y}
+            \quad
+            \textcolor{v}{\vec{v}} = a_2 \textcolor{red}{\mathbf{e}_x} + b_2 \textcolor{green}{\mathbf{e}_y}$
+    \end{center}
 
     \begin{align*}
         \textcolor{u}{\vec{u}} \wedge \textcolor{v}{\vec{v}}
-         & = (a_1 \textcolor{red}{\mathbf{e}_x} + b_1 \textcolor{green}{\mathbf{e}_y}) \wedge (a_2 \textcolor{red}{\mathbf{e}_x} + b_2 \textcolor{green}{\mathbf{e}_y}) \\
-         & = a_1 a_2 (\textcolor{red}{\mathbf{e}_x} \wedge \textcolor{red}{\mathbf{e}_x})
-        + a_1 b_2 (\textcolor{red}{\mathbf{e}_x} \wedge \textcolor{green}{\mathbf{e}_y})                                                                                \\
-         & \quad + b_1 a_2 (\textcolor{green}{\mathbf{e}_y} \wedge \textcolor{red}{\mathbf{e}_x})
-        + b_1 b_2 (\textcolor{green}{\mathbf{e}_y} \wedge \textcolor{green}{\mathbf{e}_y})                                                                              \\
-         & = (a_1 b_2 - b_1 a_2)(\textcolor{red}{\mathbf{e}_x} \wedge \textcolor{green}{\mathbf{e}_y})                                                                  \\
-         & = (a_1 b_2 - b_1 a_2) \textcolor{midredgreen}{\mathbf{e}_{xy}}
+        %  & = (a_1 \textcolor{red}{\mathbf{e}_x} + b_1 \textcolor{green}{\mathbf{e}_y}) \wedge (a_2 \textcolor{red}{\mathbf{e}_x} + b_2 \textcolor{green}{\mathbf{e}_y}) \\
+        %  & = a_1 a_2 (\textcolor{red}{\mathbf{e}_x} \wedge \textcolor{red}{\mathbf{e}_x})
+        % + a_1 b_2 (\textcolor{red}{\mathbf{e}_x} \wedge \textcolor{green}{\mathbf{e}_y})                                                                                \\
+        %  & \quad + b_1 a_2 (\textcolor{green}{\mathbf{e}_y} \wedge \textcolor{red}{\mathbf{e}_x})
+        % + b_1 b_2 (\textcolor{green}{\mathbf{e}_y} \wedge \textcolor{green}{\mathbf{e}_y})                                                                              \\
+        %  & = (a_1 b_2 - b_1 a_2)(\textcolor{red}{\mathbf{e}_x} \wedge \textcolor{green}{\mathbf{e}_y})                                                                  \\
+        = (a_1 b_2 - b_1 a_2) \textcolor{red}{\mathbf{e}_{x}} \textcolor{green}{\mathbf{e}_{y}}
     \end{align*}
 \end{frame}
 

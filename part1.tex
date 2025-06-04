@@ -1,39 +1,4 @@
-\begin{frame}{Formal sum}
-    \large
-    \begin{center}
-        \renewcommand{\arraystretch}{2.0} % more vertical space between rows
-        \begin{tabular}{|c|c|}
-            \hline
-            \textbf{Linear Algebra} & \textbf{Geometric Algebra} \\ \hline
-            $\vec{\mathbf{u}} =
-                \begin{pmatrix}
-                    a \\
-                    b \\
-                    c \\
-                    \vdots
-                \end{pmatrix}
-                \textcolor{gray}{
-                    \begin{pmatrix}
-                        \textcolor{red}{e_x}   \\
-                        \textcolor{green}{e_y} \\
-                        \textcolor{blue}{e_z}  \\
-                        \vdots
-                    \end{pmatrix}
-                }$
-                                    &
-            $\vec{\mathbf{u}} = a\, \textcolor{red}{e_x} + b\, \textcolor{green}{e_y} + c\, \textcolor{blue}{e_z} + \cdots$
-            \\ \hline
-        \end{tabular}
-    \end{center}
-\end{frame}
-
-
 \input{products}
-
-
-\input{trivectors}
-
-
 
 \begin{frame}{$k$-vectors and subspaces}
     \textbf{Set of vector spaces in 3D:}
@@ -75,95 +40,95 @@
 
 
 %%%%%%%%%%%%%%%%%%
-\begin{frame}{Right complement and dual basis}
-    ~\\~\\
-    \textbf{Right complement:}~~~
-    $\mathbf{e_{\{i\}} \wedge \mathbf{\overline{e}_{\{i\}}}} = ~ \textcolor{mixAll}{\mathbf{I}}_\mathrm{d}
-        =\textcolor{red}{\mathbf{e}_{x}} \wedge
-        \textcolor{green}{\mathbf{e}_{y}} \wedge
-        \cdots$
-    ~\\~\\
-    \textcolor{gray}{\rule{\textwidth}{0.3pt}}
-    ~\\
-    \textbf{In 3D:}\\
-    $$
-        \textcolor{midredgreen}{\mathbf{e}_{xy}} \wedge \textcolor{blue}{\mathbf{\overline{e}}_{xy}} =
-        \textcolor{red}{\mathbf{e}_x} \wedge
-        \textcolor{green}{\mathbf{e}_y} \wedge
-        \textcolor{blue}{\mathbf{e}_z} = \textcolor{mixAll}{\mathbf{I}}_3
-    $$
-    $$
-        \underbrace{
-            \textcolor{red}{\mathbf{e}_{x}} \wedge \textcolor{green}{\mathbf{e}_{y}}
-        }_{\textcolor{midredgreen}{\mathbf{e}_{xy}}}
-        \wedge
-        \Big(
-        \underbrace{
-            \textcolor{blue}{\mathbf{e}_{z}}
-        }_{ \textcolor{blue}{\mathbf{\overline{e}}_{xy}} }
-        \Big)
-        = \textcolor{mixAll}{\mathbf{I}}_3
-    $$
-    ~\\
-\end{frame}
+% \begin{frame}{Right complement and dual basis}
+%     ~\\~\\
+%     \textbf{Right complement:}~~~
+%     $\mathbf{e_{\{i\}} \wedge \mathbf{\overline{e}_{\{i\}}}} = ~ \textcolor{mixAll}{\mathbf{I}}_\mathrm{d}
+%         =\textcolor{red}{\mathbf{e}_{x}} \wedge
+%         \textcolor{green}{\mathbf{e}_{y}} \wedge
+%         \cdots$
+%     ~\\~\\
+%     \textcolor{gray}{\rule{\textwidth}{0.3pt}}
+%     ~\\
+%     \textbf{In 3D:}\\
+%     $$
+%         \textcolor{midredgreen}{\mathbf{e}_{xy}} \wedge \textcolor{blue}{\mathbf{\overline{e}}_{xy}} =
+%         \textcolor{red}{\mathbf{e}_x} \wedge
+%         \textcolor{green}{\mathbf{e}_y} \wedge
+%         \textcolor{blue}{\mathbf{e}_z} = \textcolor{mixAll}{\mathbf{I}}_3
+%     $$
+%     $$
+%         \underbrace{
+%             \textcolor{red}{\mathbf{e}_{x}} \wedge \textcolor{green}{\mathbf{e}_{y}}
+%         }_{\textcolor{midredgreen}{\mathbf{e}_{xy}}}
+%         \wedge
+%         \Big(
+%         \underbrace{
+%             \textcolor{blue}{\mathbf{e}_{z}}
+%         }_{ \textcolor{blue}{\mathbf{\overline{e}}_{xy}} }
+%         \Big)
+%         = \textcolor{mixAll}{\mathbf{I}}_3
+%     $$
+%     ~\\
+% \end{frame}
 
 
 
-%%%%%%%%%%%%%%%%%%
-\begin{frame}{Right complement and dual basis}
-    ~\\~\\
-    \textbf{Right complement:}~~~
-    $\mathbf{e_{\{i\}} \wedge \mathbf{\overline{e}_{\{i\}}}} = ~ \textcolor{mixAll}{\mathbf{I}}_\mathrm{d}
-        =\textcolor{red}{\mathbf{e}_{x}} \wedge
-        \textcolor{green}{\mathbf{e}_{y}} \wedge
-        \cdots$
+% %%%%%%%%%%%%%%%%%%
+% \begin{frame}{Right complement and dual basis}
+%     ~\\~\\
+%     \textbf{Right complement:}~~~
+%     $\mathbf{e_{\{i\}} \wedge \mathbf{\overline{e}_{\{i\}}}} = ~ \textcolor{mixAll}{\mathbf{I}}_\mathrm{d}
+%         =\textcolor{red}{\mathbf{e}_{x}} \wedge
+%         \textcolor{green}{\mathbf{e}_{y}} \wedge
+%         \cdots$
 
-    ~\\~\\
-    \textcolor{gray}{\rule{\textwidth}{0.3pt}}
-    ~\\
-    \textbf{In 3D:}\\
-    \begin{center}
-        \begin{tabular}{c}
-            $\mathbf{1} = \textcolor{mixAll}{\mathbf{\overline{e}}_{xyz}}$
-        \end{tabular}
-        \begin{tabular}{r@{=}r}
-            \textcolor{red}{$\mathbf{e}_{x}$}   & $-\textcolor{midgreenblue}{\mathbf{\overline{e}}_{yz}}$ \\
-            \textcolor{green}{$\mathbf{e}_{y}$} & $\textcolor{midredblue}{\mathbf{\overline{e}}_{xz}}$    \\
-            \textcolor{blue}{$\mathbf{e}_{z}$}  & $-\textcolor{midredgreen}{\mathbf{\overline{e}}_{xy}}$  \\
-        \end{tabular}
-        \begin{tabular}{r@{=}r}
-            \textcolor{midredgreen}{$\mathbf{e}_{xy}$}  & $\textcolor{blue}{\mathbf{\overline{e}}_{z}}$   \\
-            \textcolor{midredblue}{$\mathbf{e}_{xz}$}   & $-\textcolor{green}{\mathbf{\overline{e}}_{y}}$ \\
-            \textcolor{midgreenblue}{$\mathbf{e}_{yz}$} & $\textcolor{red}{\mathbf{\overline{e}}_{x}}$    \\
-        \end{tabular}
-        \begin{tabular}{c}
-            $\textcolor{mixAll}{\mathbf{e}_{xyz}} = \mathbf{\overline{1}}$
-        \end{tabular}
-    \end{center}
-\end{frame}
+%     ~\\~\\
+%     \textcolor{gray}{\rule{\textwidth}{0.3pt}}
+%     ~\\
+%     \textbf{In 3D:}\\
+%     \begin{center}
+%         \begin{tabular}{c}
+%             $\mathbf{1} = \textcolor{mixAll}{\mathbf{\overline{e}}_{xyz}}$
+%         \end{tabular}
+%         \begin{tabular}{r@{=}r}
+%             \textcolor{red}{$\mathbf{e}_{x}$}   & $-\textcolor{midgreenblue}{\mathbf{\overline{e}}_{yz}}$ \\
+%             \textcolor{green}{$\mathbf{e}_{y}$} & $\textcolor{midredblue}{\mathbf{\overline{e}}_{xz}}$    \\
+%             \textcolor{blue}{$\mathbf{e}_{z}$}  & $-\textcolor{midredgreen}{\mathbf{\overline{e}}_{xy}}$  \\
+%         \end{tabular}
+%         \begin{tabular}{r@{=}r}
+%             \textcolor{midredgreen}{$\mathbf{e}_{xy}$}  & $\textcolor{blue}{\mathbf{\overline{e}}_{z}}$   \\
+%             \textcolor{midredblue}{$\mathbf{e}_{xz}$}   & $-\textcolor{green}{\mathbf{\overline{e}}_{y}}$ \\
+%             \textcolor{midgreenblue}{$\mathbf{e}_{yz}$} & $\textcolor{red}{\mathbf{\overline{e}}_{x}}$    \\
+%         \end{tabular}
+%         \begin{tabular}{c}
+%             $\textcolor{mixAll}{\mathbf{e}_{xyz}} = \mathbf{\overline{1}}$
+%         \end{tabular}
+%     \end{center}
+% \end{frame}
 
 
 
-%%%%%%%%%%%%%%%%%%
-\begin{frame}{Anti-wedge Product}
-    \begin{itemize}
-        \item regressive / anti-wedge product
-        \item written $\mathbf{{u}} \vee \mathbf{{v}}$ (read $\mathbf{{u}}$ ``anti-wedge'' $\mathbf{{v}}$)
-        \item property: $\mathbf{{u}} \vee \mathbf{{v}} = \overline{\overline{\mathbf{u}} \wedge \overline{\mathbf{v}}}$
-    \end{itemize}
-    ~\\~\\
-    \textbf{Example in 3D:}
-    $$
-        \textcolor{midgreenblue}{\mathbf{e}_{yz}} \vee \textcolor{midredblue}{\mathbf{e}_{xz}}
-        = \overline{
-            \textcolor{red}{\mathbf{\overline{e}}_{yz}} \wedge
-            \textcolor{green}{\mathbf{\overline{e}}_{xz}}
-        }
-        = -\overline{
-            \textcolor{red}{\mathbf{e}_{x}} \wedge
-            \textcolor{green}{\mathbf{e}_{y}}
-        }
-        = -\textcolor{midredgreen}{\mathbf{\overline{e}}_{xy}}
-        = -\textcolor{blue}{\mathbf{e}_{z}}
-    $$
-\end{frame}
+% %%%%%%%%%%%%%%%%%%
+% \begin{frame}{Anti-wedge Product}
+%     \begin{itemize}
+%         \item regressive / anti-wedge product
+%         \item written $\mathbf{{u}} \vee \mathbf{{v}}$ (read $\mathbf{{u}}$ ``anti-wedge'' $\mathbf{{v}}$)
+%         \item property: $\mathbf{{u}} \vee \mathbf{{v}} = \overline{\overline{\mathbf{u}} \wedge \overline{\mathbf{v}}}$
+%     \end{itemize}
+%     ~\\~\\
+%     \textbf{Example in 3D:}
+%     $$
+%         \textcolor{midgreenblue}{\mathbf{e}_{yz}} \vee \textcolor{midredblue}{\mathbf{e}_{xz}}
+%         = \overline{
+%             \textcolor{red}{\mathbf{\overline{e}}_{yz}} \wedge
+%             \textcolor{green}{\mathbf{\overline{e}}_{xz}}
+%         }
+%         = -\overline{
+%             \textcolor{red}{\mathbf{e}_{x}} \wedge
+%             \textcolor{green}{\mathbf{e}_{y}}
+%         }
+%         = -\textcolor{midredgreen}{\mathbf{\overline{e}}_{xy}}
+%         = -\textcolor{blue}{\mathbf{e}_{z}}
+%     $$
+% \end{frame}

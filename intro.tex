@@ -1,0 +1,81 @@
+\begin{frame}{Introduction}
+    \begin{center}
+        \Huge
+        Geometric Algebra
+
+        \begin{tikzpicture}[scale=0.7]
+
+            \begin{scope}[shift={(-4,0)}]
+                \coordinate (O) at (0,0);
+
+                \def\xa{2.5}
+                \def\ya{2.5}
+                \coordinate (a) at (\xa,\ya);
+
+                \def\xb{4}
+                \def\yb{0}
+                \coordinate (b) at (\xb,\yb);
+
+                \draw[ultra thick, u, ->, >=Triangle] (O) -- (a);
+                \draw[ultra thick, v, ->, >=Triangle] (O) -- (b);
+
+                \node at (5.5,1) {\Huge$=$};
+                \node at (12,1) {\Huge$+$};
+
+            \end{scope}
+
+            \begin{scope}[shift={(3,0)}]
+                \coordinate (O) at (0,0);
+
+                \def\xa{2.5}
+                \def\ya{2.5}
+                \coordinate (a) at (\xa,\ya);
+
+                \def\xb{4}
+                \def\yb{0}
+                \coordinate (b) at (\xb,\yb);
+
+                \draw[ultra thick, u, ->, >=Triangle] (O) -- (a);
+                \draw[ultra thick, v, ->, >=Triangle] (O) -- (b);
+                \draw[ultra thick, gray, dotted, overlay] (\xa,0) -- (\xa, \ya);
+                \draw[decorate,gray, ultra thick,decoration={brace,amplitude=5pt,mirror}] (0,-0.1) -- (\xa, -0.1);
+
+            \end{scope}
+
+            \begin{scope}[shift={(9,0)}]
+                \coordinate (O) at (0,0);
+
+                \def\xa{2.5}
+                \def\ya{2.5}
+                \coordinate (a) at (\xa,\ya);
+
+                \def\xb{4}
+                \def\yb{0}
+                \coordinate (b) at (\xb,\yb);
+
+                \draw[ultra thick, A, ->, >=Triangle] ({\xa+\xb},{\ya}) -- (b);
+                \draw[ultra thick, A, ->, >=Triangle] (a) -- ({\xa+\xb},{\ya});
+                \draw[ultra thick, A, ->, >=Triangle] (b) -- (O);
+                \draw[ultra thick, A, ->, >=Triangle] (O) -- (a);
+
+                \draw[draw=none, fill=A, opacity=0.2] ({\xa+\xb},{\ya}) -- (b) -- (O) -- (a) -- cycle;
+                % \node[A] at (3,1.25) {$\vec{A}$};
+                \draw[A!60, thick,<-,>=Triangle] (3.75,1.25) arc[radius=0.5cm,start angle=0,delta angle=270];
+
+                \draw[ultra thick, u, ->, >=Triangle] (O) -- (a);
+                \draw[ultra thick, v, ->, >=Triangle] (O) -- (b);
+            \end{scope}
+            % \draw[red] (current bounding box.south west) rectangle (current bounding box.north east);
+        \end{tikzpicture}
+
+
+        \normalsize
+        \vspace{1em}
+        {“\textit{A unified mathematical language for the whole of physics.}” — \textcolor{gray}{D. Hestenes}}
+
+        \vspace{1em}
+        {“\textit{The most powerful and general language available for the development of mathematical physics.}” — \textcolor{gray}{S. Gull, A. Lasenby, and C. Doran}}
+
+    \end{center}
+
+\end{frame}
